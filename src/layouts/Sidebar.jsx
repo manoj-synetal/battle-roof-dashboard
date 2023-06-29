@@ -43,7 +43,7 @@ const Sidebar = ({ handleToggle }) => {
   ];
 
   return (
-    <div className="md:z-auto z-40">
+    <div className="md:z-auto w-full z-40">
       <img
         src={Logo}
         alt="ApkiStore"

@@ -12,7 +12,7 @@ const Layout = (Wcomponent) => {
       <div className="flex h-screen overflow-hidden">
         {/* Sidebar */}
         <div
-          className={`w-80 ${
+          className={`w-1/5 ${
             !toggle ? "md:hidden left-0" : "-left-full"
           } bg-white md:static absolute border-r transition-all duration-100 top-0 z-50 md:z-auto  h-full overflow-y-auto p-4`}
         >
@@ -20,7 +20,7 @@ const Layout = (Wcomponent) => {
         </div>
 
         {/* Component & Header */}
-        <main className="w-full">
+        <main className="w-4/5">
           <Header handleToggle={handleToggle} toggle={toggle} />
           <div className="p-3 bg-color h-full">
             <Wcomponent />

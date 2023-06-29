@@ -22,19 +22,19 @@ const Tournaments = () => {
     <div className="tracking-wider h-full">
       <Heading title="Tournaments" />
 
-      <section className="w-full overflow-hidden h-[80vh] sm:h-[79vh] pb-24 sm:pb-14 bg-white p-3 mt-3 sm:mt-4 rounded shadow">
+      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-white p-3 mt-2 sm:mt-3 rounded shadow">
         {/* search & button */}
-        <div className="flex sm:flex-row flex-col gap-3 pb-3 sm:items-center sm:justify-between">
-          <div className="rounded flex w-full sm:w-60 items-center  py-1.5 px-2.5 border">
+        <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
+          <div className="rounded flex w-full sm:w-60 items-center  py-2 px-2.5 border">
             <input
               type="text"
               className=" outline-none tracking-wider text-sm w-full"
-              placeholder="Search Tournaments..."
+              placeholder="Search Tournament..."
             />
             <GoSearch className="text-gray-500 text-xl cursor-pointer ml-2" />
           </div>
           <Button
-            title={`Add New`}
+            title={`Add New Tournament`}
             icon={<BsPlus className="text-xl" />}
             event={handleOpenModal}
           />
@@ -46,7 +46,7 @@ const Tournaments = () => {
             <thead>
               <tr>
                 <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
-                 Game Name
+                  Game Name
                 </th>
                 <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Tournament Name
@@ -81,40 +81,41 @@ const Tournaments = () => {
                 <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Images
                 </th>
-              
+
                 <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody className="text-sm relative h-full overflow-y-auto">
-              {["", "", "", "", "", "","","",""].map((item, i) => {
+              {["", "", "", "", "", "", "", "", ""].map((item, i) => {
                 return (
                   <tr
-                    className={`${i % 2 !== 0 && "bg-[rgb(248,248,252)]"
-                      } border-b`}
+                    className={`${
+                      i % 2 !== 0 && "bg-[rgb(248,248,252)]"
+                    } border-b`}
                   >
-                    <td className="px-4 py-2.5 text-color">PUBG</td>
-                    <td className="px-4 py-2.5">BattleRoof</td>
-                    <td className="px-4 py-2.5">Solo</td>
-                    <td className="px-4 py-2.5">http:/google.com</td>
-                    <td className="px-4 py-2.5">Erangle</td>
-                    <td className="px-4 py-2.5">100$</td>
-                    <td className="px-4 py-2.5">1000$</td>
-                    <td className="px-4 py-2.5">43 Left</td>
-                    <td className="px-4 py-2.5">Active</td>
-                    <td className="px-4 py-2.5">Completed</td>
+                    <td className="px-4 py-2 text-color">PUBG</td>
+                    <td className="px-4 py-2">BattleRoof</td>
+                    <td className="px-4 py-2">Solo</td>
+                    <td className="px-4 py-2">http:/google.com</td>
+                    <td className="px-4 py-2">Erangle</td>
+                    <td className="px-4 py-2">100$</td>
+                    <td className="px-4 py-2">1000$</td>
+                    <td className="px-4 py-2">43 Left</td>
+                    <td className="px-4 py-2">Active</td>
+                    <td className="px-4 py-2">Completed</td>
 
-                    <td className="px-4 py-2.5">26/03/2023</td>
-               
-                    <td className="px-4 py-2.5  text-gray-900">
+                    <td className="px-4 py-2">26/03/2023</td>
+
+                    <td className="px-4 py-2  text-gray-900">
                       <img
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
                         alt=""
-                        className="w-10 h-10 rounded-full object-cover object-top"
+                        className="w-9 h-9 rounded-full object-cover object-top"
                       />
                     </td>
-                
+
                     <td className="px-4 text-center ">
                       <BsThreeDots
                         onClick={() => {
@@ -154,9 +155,9 @@ const Tournaments = () => {
         </div>
 
         {/* Pagination */}
-        <div className="sm:py-4 py-2.5 flex items-center gap-10 justify-end">
-          <div className="text-xs">1-6 of 40</div>
-          <div className="text-xs flex gap-0.5">
+        <div className=" p-3 text-sm bg-white absolute bottom-0 right-0 w-full flex items-center gap-10 justify-end">
+          <div className="">1-6 of 40</div>
+          <div className=" flex gap-0.5">
             <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
               <MdExpandLess className="text-lg rotate-[270deg]" />
             </span>

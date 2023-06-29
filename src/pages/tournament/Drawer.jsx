@@ -55,7 +55,7 @@ const Drawer = ({ handleCloseModal, editData }) => {
             </div>
             <div className="flex flex-col">
               <label htmlhtmlFor="link" className="text-sm">
-               Link
+                Link
               </label>
               <input
                 id="link"
@@ -81,7 +81,7 @@ const Drawer = ({ handleCloseModal, editData }) => {
             </div>
             <div className="flex flex-col">
               <label htmlhtmlFor="prizepool" className="text-sm">
-               Prize Pool
+                Prize Pool
               </label>
               <input
                 id="prizepool"
@@ -92,7 +92,7 @@ const Drawer = ({ handleCloseModal, editData }) => {
 
             <div className="flex flex-col">
               <label htmlhtmlFor="slots" className="text-sm">
-              Total Slots
+                Total Slots
               </label>
               <input
                 id="slots"
@@ -130,17 +130,7 @@ const Drawer = ({ handleCloseModal, editData }) => {
                 className="rounded py-1 px-2 outline-none border"
               />
             </div>
-
-           
           </section>
-
-         
-
-         
-          
-         
-
-        
 
           {/* Images */}
           <div className="mt-2">

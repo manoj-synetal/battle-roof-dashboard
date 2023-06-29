@@ -67,7 +67,7 @@ const Products = () => {
               </tr>
             </thead>
             <tbody className="text-sm relative h-full overflow-y-auto">
-              {["", "", "", "", "", ""].map((item, i) => {
+              {["", "", "", "", "", "", "", ""].map((item, i) => {
                 return (
                   <tr
                     className={`${
