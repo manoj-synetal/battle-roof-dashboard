@@ -6,12 +6,30 @@ import { BsPlus, BsThreeDots } from "react-icons/bs";
 import NewGame from "./NewGame";
 import { GoSearch } from "react-icons/go";
 import { MdExpandLess, MdOutlineCloudDownload } from "react-icons/md";
+import dummy from "../../components/Dummy";
+import Pagination from "../../components/Pagination";
 
 const Products = () => {
   const [editData, setEditData] = useState();
   const [showOption, setShowOption] = useState();
   const [openModal, setOpenModal] = useState(false);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const perPageItems = 6;
+  const totalItems = dummy.length;
+  const numberOfPages = Math.ceil(totalItems / perPageItems);
+
+  const trimStart = (currentPage - 1) * perPageItems;
+  const trimEnd = trimStart + perPageItems;
+
+  // handle Paginations
+  const handlePrev = () => currentPage !== 1 && setCurrentPage(currentPage - 1);
+  const handleForw = () =>
+    trimEnd <= totalItems && setCurrentPage(currentPage + 1);
+
+  const handlePages = (item) => setCurrentPage(item);
+
+  // handle Modals
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => {
     setOpenModal(false);
@@ -74,7 +92,7 @@ const Products = () => {
               </tr>
             </thead>
             <tbody className="text-xs relative h-full overflow-y-auto">
-              {["", "", "", "", "", "", "", "", ""].map((item, i) => {
+              {dummy.slice(trimStart, trimEnd).map((item, i) => {
                 return (
                   <tr
                     className={`${
@@ -139,32 +157,15 @@ const Products = () => {
         </div>
 
         {/* Pagination */}
-        <div className=" p-3 text-sm bg-white absolute bottom-0 right-0 w-full flex items-center gap-10 justify-end">
-          <div className="">1-6 of 40</div>
-          <div className=" flex gap-0.5">
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              <MdExpandLess className="text-lg rotate-[270deg]" />
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              1
-            </span>
-            <span className="w-6 h-6 text-color bg-color rounded-full flex justify-center items-center cursor-pointer ">
-              2
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              3
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              4
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              ...
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              <MdExpandLess className="text-lg rotate-[90deg]" />
-            </span>
-          </div>
-        </div>
+        <Pagination
+          handlePrev={handlePrev}
+          from={trimStart}
+          to={trimEnd}
+          total={totalItems}
+          handleForw={handleForw}
+          currentPage={currentPage}
+          numberOfPages={numberOfPages}
+        />
       </section>
 
       {/* Add & Update Modal */}

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import {
+  MdOutlineGames,
   MdOutlineSpaceDashboard,
-  MdRadioButtonChecked,
   MdRadioButtonUnchecked,
 } from "react-icons/md";
-import { FaOpencart, FaProductHunt } from "react-icons/fa";
+import { FaGamepad, FaOpencart, FaProductHunt } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsChevronDown, BsChevronUp, BsFillGearFill } from "react-icons/bs";
 import Button2 from "../components/Button2";
@@ -34,13 +34,13 @@ const Sidebar = ({ handleToggle }) => {
     },
     {
       name: "Games",
-      icon: <FaProductHunt />,
+      icon: <FaGamepad />,
       path: "/games",
     },
     {
       name: "Tournaments",
       path: "/tournaments",
-      icon: <FaOpencart />,
+      icon: <MdOutlineGames />,
     },
     {
       name: "Users",
@@ -109,7 +109,7 @@ const Sidebar = ({ handleToggle }) => {
                     location.pathname === item.path
                       ? "text-color"
                       : "text-gray-500 "
-                  } hover-text-color  flex items-center gap-3 `}
+                  } hover-text-color text-sm  flex items-center gap-3 `}
                 >
                   <span className="text-lg">{item.icon}</span>
                   {item.name}
@@ -127,7 +127,7 @@ const Sidebar = ({ handleToggle }) => {
                   {item.other.map((ite) => {
                     return (
                       <div className="flex items-center gap-1.5">
-                        <MdRadioButtonChecked />
+                        <MdRadioButtonUnchecked className="text-sm" />
                         <Link
                           key={ite.name}
                           to={ite.path}
