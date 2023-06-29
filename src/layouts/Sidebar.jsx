@@ -37,7 +37,7 @@ const Sidebar = ({ handleToggle }) => {
     },
     {
       name: "Tournaments",
-      path: "/orders",
+      path: "/tournaments",
       icon: <FaOpencart />,
     },
   ];
