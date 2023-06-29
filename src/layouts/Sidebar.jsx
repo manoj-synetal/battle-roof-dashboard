@@ -40,6 +40,36 @@ const Sidebar = ({ handleToggle }) => {
       path: "/tournaments",
       icon: <FaOpencart />,
     },
+    {
+      name: "Users",
+      path: "/users",
+      icon: <FaOpencart />,
+    },
+    {
+      name: "Transaction",
+      path: "/transaction",
+      icon: <FaOpencart />,
+    },
+    {
+      name: "Support",
+      path: "/support",
+      icon: <FaOpencart />,
+    },
+    
+    {
+      name: "Setting",
+      path: "/setting",
+      icon: <FaOpencart />,
+      other: [
+        {
+          name: "How To Play",
+          path: "/howtoplay",
+          icon: <FaOpencart />,
+        },
+      ]
+    },
+
+   
   ];
 
   return (
