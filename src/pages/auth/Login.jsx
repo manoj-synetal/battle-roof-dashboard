@@ -24,70 +24,129 @@ const Login = () => {
   };
 
   return (
-    <section className="sm:h-screen flex justify-center items-center overflow-hidden">
-      {/* Content */}
-      <div className="container mx-auto flex items-center h-full justify-center">
-        {/* Form */}
-        <div className="form-section  bg-white z-20 grid rounded shadow p-10">
-          {/* Details */}
-          <div className="flex flex-col gap-5 items-center text-center justify-center ">
-            <img src={Logo} alt="Login" className="w-48" />
-            <h2 className="uppercase text-blue-600 font-extrabold text-2xl">
-              Sign In
-            </h2>
-            <p className="text-gray-600">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor,
-              esse.
-            </p>
+    <div class="flex w-full h-screen mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
+      <div
+        class="hidden bg-cover lg:block lg:w-2/3"
+        style={{
+          backgroundImage: `url(
+              "https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80"
+            )`,
+        }}
+      ></div>
+
+      <div class="max-w-lg mx-auto itemc w-full px-6 py-8 flex flex-col justify-center md:px-8 lg:w-1/3">
+        <div class="flex justify-center mx-auto">
+          <img
+            class="w-auto h-7 sm:h-8"
+            src="https://merakiui.com/images/logo.svg"
+            alt=""
+          />
+        </div>
+
+        <p class="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
+          Welcome back!
+        </p>
+
+        <a
+          href="#"
+          class="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
+          <div class="px-4 py-2">
+            <svg class="w-6 h-6" viewBox="0 0 40 40">
+              <path
+                d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
+                fill="#FFC107"
+              />
+              <path
+                d="M5.25497 12.2425L10.7308 16.2583C12.2125 12.59 15.8008 9.99999 20 9.99999C22.5491 9.99999 24.8683 10.9617 26.6341 12.5325L31.3483 7.81833C28.3716 5.04416 24.39 3.33333 20 3.33333C13.5983 3.33333 8.04663 6.94749 5.25497 12.2425Z"
+                fill="#FF3D00"
+              />
+              <path
+                d="M20 36.6667C24.305 36.6667 28.2167 35.0192 31.1742 32.34L26.0159 27.975C24.3425 29.2425 22.2625 30 20 30C15.665 30 11.9842 27.2359 10.5975 23.3784L5.16254 27.5659C7.92087 32.9634 13.5225 36.6667 20 36.6667Z"
+                fill="#4CAF50"
+              />
+              <path
+                d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
+                fill="#1976D2"
+              />
+            </svg>
           </div>
 
-          {/* Form Inputs */}
-          <form onSubmit={handleSubmit} className="tracking-wider grid gap-5">
-            {/* Phone */}
-            <div className="grid gap-1">
-              <label htmlFor="phone">Phone*</label>
-              <input
-                type="text"
-                id="phone"
-                name="phone"
-                value={formInput?.phone}
-                onChange={handleChange}
-                maxLength={10}
-                className="outline-none rounded  border-slate-200 border p-2"
-              />
-            </div>
-            {/* Password */}
-            <div className="grid gap-1">
-              <label htmlFor="password">Password*</label>
-              <div className="outline-none rounded flex items-center border-slate-200 border p-2">
-                <input
-                  type={isView ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  value={formInput?.password}
-                  onChange={handleChange}
-                  className="outline-none w-full"
-                />
-                <span onClick={showPassword} className="cursor-pointer text-xl">
-                  {isView ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-                </span>
-              </div>
-            </div>
-            {/* Button */}
-            <button
-              type="submit"
-              className="p-2 uppercase tracking-wider rounded text-white bg-pink-500 text-center w-full"
+          <span class="w-5/6 px-4 py-3 font-bold text-center">
+            Sign in with Google
+          </span>
+        </a>
+
+        <div class="flex items-center justify-between mt-4">
+          <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
+
+          <a
+            href="#"
+            class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
+          >
+            or login with email
+          </a>
+
+          <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
+        </div>
+
+        <div class="mt-4">
+          <label
+            class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+            for="LoggingEmailAddress"
+          >
+            Email Address
+          </label>
+          <input
+            id="LoggingEmailAddress"
+            class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+            type="email"
+          />
+        </div>
+
+        <div class="mt-4">
+          <div class="flex justify-between">
+            <label
+              class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+              for="loggingPassword"
             >
-              Login
-            </button>
-          </form>
+              Password
+            </label>
+            <a
+              href="#"
+              class="text-xs text-gray-500 dark:text-gray-300 hover:underline"
+            >
+              Forget Password?
+            </a>
+          </div>
+
+          <input
+            id="loggingPassword"
+            class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+            type="password"
+          />
+        </div>
+
+        <div class="mt-6">
+          <button class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+            Sign In
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between mt-4">
+          <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+
+          <a
+            href="#"
+            class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
+          >
+            or sign up
+          </a>
+
+          <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
         </div>
       </div>
-
-      {/* Circles */}
-      <div className="rounded-full w-44 h-44 fixed -top-14 -left-16 bg-blue-400"></div>
-      <div className="rounded-full w-44 h-44 fixed -bottom-14 -right-16 bg-blue-400"></div>
-    </section>
+    </div>
   );
 };
 
