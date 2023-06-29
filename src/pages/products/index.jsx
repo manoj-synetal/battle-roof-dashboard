@@ -42,25 +42,25 @@ const Products = () => {
 
         {/* Table Data */}
         <div className="table-container">
-          <table class="w-full text-left whitespace-no-wrap">
+          <table className="w-full text-left whitespace-no-wrap">
             <thead>
               <tr>
-                <th class="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
+                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
                   Name
                 </th>
-                <th class="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Description
                 </th>
-                <th class="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Prices
                 </th>
-                <th class="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Image
                 </th>
-                <th class="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Status
                 </th>
-                <th class="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
+                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
                   Action
                 </th>
               </tr>
@@ -73,9 +73,9 @@ const Products = () => {
                       i % 2 !== 0 && "bg-[rgb(248,248,252)]"
                     } border-b`}
                   >
-                    <td class="px-4 py-2.5 text-color">Jeans</td>
-                    <td class="px-4 py-2.5">This is the best jeans</td>
-                    <td class="px-4 py-2.5">
+                    <td className="px-4 py-2.5 text-color">Jeans</td>
+                    <td className="px-4 py-2.5">This is the best jeans</td>
+                    <td className="px-4 py-2.5">
                       <div>
                         Price : <span className="font-bold">Rs.100</span>
                       </div>
@@ -83,15 +83,15 @@ const Products = () => {
                         Sale Price : <span className="font-bold">Rs.80</span>
                       </div>
                     </td>
-                    <td class="px-4 py-2.5  text-gray-900">
+                    <td className="px-4 py-2.5  text-gray-900">
                       <img
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
                         alt=""
                         className="w-10 h-10 rounded-full object-cover object-top"
                       />
                     </td>
-                    <td class="px-4 py-2.5  text-gray-900">Published</td>
-                    <td class="px-4 text-center ">
+                    <td className="px-4 py-2.5  text-gray-900">Published</td>
+                    <td className="px-4 text-center ">
                       <BsThreeDots
                         onClick={() => {
                           setShowOption(showOption === i ? "" : i);

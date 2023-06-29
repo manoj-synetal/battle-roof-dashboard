@@ -21,14 +21,14 @@ const AllRoutes = [
   },
   {
     name: "Products",
-    path: "/products",
+    path: "/games/lists",
     element: <Products />,
     private: true,
   },
 
   {
     name: "View Products",
-    path: "/product/view/",
+    path: "/games/view/",
     element: <ViewProduct />,
     private: true,
   },

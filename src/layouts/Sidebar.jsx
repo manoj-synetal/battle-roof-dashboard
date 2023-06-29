@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
+import {
+  MdOutlineSpaceDashboard,
+  MdRadioButtonChecked,
+  MdRadioButtonUnchecked,
+} from "react-icons/md";
 import { FaOpencart, FaProductHunt } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
@@ -25,24 +29,19 @@ const Sidebar = ({ handleToggle }) => {
       name: "Dashboard",
       path: "/dashboard",
       icon: <MdOutlineSpaceDashboard />,
+    },
+    {
+      name: "Games",
+      icon: <FaProductHunt />,
       other: [
         {
-          name: "Dashboard 1",
-          path: "/dashboard",
-        },
-        {
-          name: "Dashboard 2",
-          path: "/dashboard",
+          name: "Lists",
+          path: "/games/lists",
         },
       ],
     },
     {
-      name: "Products",
-      icon: <FaProductHunt />,
-      path: "/products",
-    },
-    {
-      name: "Orders",
+      name: "Tournaments",
       path: "/orders",
       icon: <FaOpencart />,
     },
@@ -53,7 +52,7 @@ const Sidebar = ({ handleToggle }) => {
       <img
         src={Logo}
         alt="ApkiStore"
-        className="w-36 md:block hidden mb-9 mt-1 mx-auto"
+        className="w-36 md:block hidden mb-9 mt-1"
       />
 
       <div
@@ -97,13 +96,16 @@ const Sidebar = ({ handleToggle }) => {
                 <div className="flex flex-col gap-2 p-2 pt-0 rounded mb-3">
                   {item.other.map((ite) => {
                     return (
-                      <Link
-                        key={ite.name}
-                        to={ite.path}
-                        className="hover-text-color text-sm cursor-pointer"
-                      >
-                        {ite.name}
-                      </Link>
+                      <div className="flex items-center gap-2.5">
+                        <MdRadioButtonUnchecked />
+                        <Link
+                          key={ite.name}
+                          to={ite.path}
+                          className="hover-text-color cursor-pointer"
+                        >
+                          {ite.name}
+                        </Link>
+                      </div>
                     );
                   })}
                 </div>

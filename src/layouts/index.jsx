@@ -6,7 +6,6 @@ const Layout = (Wcomponent) => {
   return function Component() {
     const [toggle, setToggle] = useState(true);
 
-    console.log(toggle);
     // handleToggle
     const handleToggle = () => setToggle(!toggle);
     return (

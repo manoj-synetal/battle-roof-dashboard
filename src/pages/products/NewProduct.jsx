@@ -28,7 +28,7 @@ const NewProduct = ({ handleCloseModal, editData }) => {
           {/* Name & Stock */}
           <section className="grid sm:grid-cols-2 gap-2">
             <div className="flex flex-col">
-              <label htmlFor="name" className="text-sm">
+              <label htmlhtmlFor="name" className="text-sm">
                 Name*
               </label>
               <input
@@ -38,7 +38,7 @@ const NewProduct = ({ handleCloseModal, editData }) => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="stocks" className="text-sm">
+              <label htmlhtmlFor="stocks" className="text-sm">
                 Stocks*
               </label>
               <input
@@ -52,7 +52,7 @@ const NewProduct = ({ handleCloseModal, editData }) => {
           {/* Prices */}
           <section className="grid sm:grid-cols-2 gap-2">
             <div className="flex flex-col">
-              <label htmlFor="price" className="text-sm">
+              <label htmlhtmlFor="price" className="text-sm">
                 Price*
               </label>
               <input
@@ -62,7 +62,7 @@ const NewProduct = ({ handleCloseModal, editData }) => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="salePrice" className="text-sm">
+              <label htmlhtmlFor="salePrice" className="text-sm">
                 Sale Price
               </label>
               <input
@@ -75,7 +75,7 @@ const NewProduct = ({ handleCloseModal, editData }) => {
 
           {/* Description */}
           <div className="flex flex-col">
-            <label htmlFor="category" className="text-sm">
+            <label htmlhtmlFor="category" className="text-sm">
               Description*
             </label>
             <textarea
@@ -88,13 +88,13 @@ const NewProduct = ({ handleCloseModal, editData }) => {
           {/* Category & Sub Category */}
           <section className="grid sm:grid-cols-2 gap-2">
             <div className="flex flex-col">
-              <label htmlFor="category" className="text-sm">
+              <label htmlhtmlFor="category" className="text-sm">
                 Category*
               </label>
               <Select id="category" options={options} />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="subCategory" className="text-sm">
+              <label htmlhtmlFor="subCategory" className="text-sm">
                 Sub Category*
               </label>
               <Select id="subCategory" options={options} />
@@ -103,7 +103,7 @@ const NewProduct = ({ handleCloseModal, editData }) => {
 
           {/* Tags */}
           <div className="flex flex-col">
-            <label htmlFor="tags" className="text-sm">
+            <label htmlhtmlFor="tags" className="text-sm">
               Tags
             </label>
             <textarea
@@ -116,13 +116,13 @@ const NewProduct = ({ handleCloseModal, editData }) => {
           {/* Sizes & Colors */}
           <section className="grid sm:grid-cols-2 gap-2">
             <div className="flex flex-col">
-              <label htmlFor="size" className="text-sm">
+              <label htmlhtmlFor="size" className="text-sm">
                 Size*
               </label>
               <Select id="size" options={options} />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="colors" className="text-sm">
+              <label htmlhtmlFor="colors" className="text-sm">
                 Colors*
               </label>
               <Select id="colors" options={options} />
@@ -132,7 +132,7 @@ const NewProduct = ({ handleCloseModal, editData }) => {
           {/* Images */}
           <div className="mt-2">
             <label
-              htmlFor="images"
+              htmlhtmlFor="images"
               className="text-sm flex flex-col justify-center rounded border-dashed border p-5 items-center"
             >
               <MdOutlineCloudUpload className="text-3xl mb-0.5" />

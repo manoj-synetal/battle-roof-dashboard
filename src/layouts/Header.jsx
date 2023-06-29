@@ -4,8 +4,10 @@ import { GoSearch } from "react-icons/go";
 import { HiOutlineMenu } from "react-icons/hi";
 import { BsChatDots, BsChevronDown } from "react-icons/bs";
 import { MdOutlineNotificationsActive } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ handleToggle, toggle }) => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState();
 
   // handleOpenModal
@@ -76,7 +78,9 @@ const Header = ({ handleToggle, toggle }) => {
               <span className="cursor-pointer">My Profile</span>
               <span className="cursor-pointer">Setting</span>
               <hr />
-              <span className="cursor-pointer">Sign Out</span>
+              <span onClick={() => navigate("/")} className="cursor-pointer">
+                Sign Out
+              </span>
             </div>
           )}
         </section>
