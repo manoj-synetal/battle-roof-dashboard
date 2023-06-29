@@ -4,9 +4,11 @@ import Tournaments from "../pages/tournament";
 import ViewProduct from "../pages/products/ViewProduct";
 import Setting from '../pages/setting'
 import Support from '../pages/support'
-import HowToPlay from '../pages/setting/howtoplay'
 import Transaction from '../pages/transaction'
 import Users from '../pages/users/'
+import HowToPlay from '../pages/setting/howtoplay'
+import Profile from '../pages/setting/profile'
+
 
 const Login = lazy(() => import("../pages/auth/Login"));
 const Dashboard = lazy(() => import("../pages/dashboard"));
@@ -71,11 +73,17 @@ const AllRoutes = [
   },
   {
     name: "How To Play",
-    path: "/howToPlay",
+    path: "/setting/howToPlay",
     element: <HowToPlay />,
     private: true,
   },
- 
+  {
+    name: "Profile",
+    path: "/setting/profile",
+    element: <Profile />,
+    private: true,
+  },
+
 ];
 
 export default AllRoutes;
