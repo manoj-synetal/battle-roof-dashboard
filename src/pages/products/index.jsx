@@ -6,6 +6,7 @@ import { BsPlus, BsThreeDots } from "react-icons/bs";
 import NewProduct from "./NewProduct";
 import { GoSearch } from "react-icons/go";
 import { MdExpandLess } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [editData, setEditData] = useState();
@@ -22,10 +23,10 @@ const Products = () => {
     <div className="tracking-wider h-full">
       <Heading title="Products" />
 
-      <section className="w-full overflow-hidden h-[80vh] sm:h-[79vh] pb-24 sm:pb-14 bg-white p-3 mt-3 sm:mt-4 rounded shadow">
+      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-white p-3 mt-2 sm:mt-3 rounded shadow">
         {/* search & button */}
-        <div className="flex sm:flex-row flex-col gap-3 pb-3 sm:items-center sm:justify-between">
-          <div className="rounded flex w-full sm:w-60 items-center  py-1.5 px-2.5 border">
+        <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
+          <div className="rounded flex w-full sm:w-60 items-center  py-2 px-2.5 border">
             <input
               type="text"
               className=" outline-none tracking-wider text-sm w-full"
@@ -73,25 +74,22 @@ const Products = () => {
                       i % 2 !== 0 && "bg-[rgb(248,248,252)]"
                     } border-b`}
                   >
-                    <td className="px-4 py-2.5 text-color">Jeans</td>
-                    <td className="px-4 py-2.5">This is the best jeans</td>
-                    <td className="px-4 py-2.5">
+                    <td className="px-4 py-2 text-color">Jeans</td>
+                    <td className="px-4 py-2">This is the best jeans</td>
+                    <td className="px-4 py-2">
                       <div>
                         Price : <span className="font-bold">Rs.100</span>
                       </div>
-                      <div>
-                        Sale Price : <span className="font-bold">Rs.80</span>
-                      </div>
                     </td>
-                    <td className="px-4 py-2.5  text-gray-900">
+                    <td className="px-4 py-2  text-gray-900">
                       <img
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
                         alt=""
-                        className="w-10 h-10 rounded-full object-cover object-top"
+                        className="w-9 h-9 rounded-full object-cover object-top"
                       />
                     </td>
-                    <td className="px-4 py-2.5  text-gray-900">Published</td>
-                    <td className="px-4 text-center ">
+                    <td className="px-4 py-2  text-gray-900">Published</td>
+                    <td className="px-4 text-center sm:relative ">
                       <BsThreeDots
                         onClick={() => {
                           setShowOption(showOption === i ? "" : i);
@@ -99,7 +97,7 @@ const Products = () => {
                         className="text-xl cursor-pointer"
                       />
                       {showOption === i && (
-                        <div className="rounded p-2 gap-1.5 pl-4 pr-8 z-30 absolute top-12 right-0 bg-white  grid text-left shadow">
+                        <div className="rounded p-2 gap-1.5 pl-4 z-30 absolute top-12 sm:left-0 right-0 bg-white  grid text-left shadow">
                           <span
                             onClick={() => {
                               handleOpenModal();
@@ -110,9 +108,9 @@ const Products = () => {
                           >
                             Edit
                           </span>
-                          <a href="/product/view/" className="cursor-pointer">
+                          <Link to="/games/view/" className="cursor-pointer">
                             View
-                          </a>
+                          </Link>
                           <span
                             onClick={() => setShowOption("")}
                             className="cursor-pointer"
@@ -130,9 +128,9 @@ const Products = () => {
         </div>
 
         {/* Pagination */}
-        <div className="sm:py-4 py-2.5 flex items-center gap-10 justify-end">
-          <div className="text-xs">1-6 of 40</div>
-          <div className="text-xs flex gap-0.5">
+        <div className=" p-3 text-sm bg-white absolute bottom-0 right-0 w-full flex items-center gap-10 justify-end">
+          <div className="">1-6 of 40</div>
+          <div className=" flex gap-0.5">
             <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
               <MdExpandLess className="text-lg rotate-[270deg]" />
             </span>

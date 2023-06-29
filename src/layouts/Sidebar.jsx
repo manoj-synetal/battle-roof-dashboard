@@ -33,12 +33,7 @@ const Sidebar = ({ handleToggle }) => {
     {
       name: "Games",
       icon: <FaProductHunt />,
-      other: [
-        {
-          name: "Lists",
-          path: "/games/lists",
-        },
-      ],
+      path: "/games",
     },
     {
       name: "Tournaments",
@@ -52,7 +47,7 @@ const Sidebar = ({ handleToggle }) => {
       <img
         src={Logo}
         alt="ApkiStore"
-        className="w-36 md:block hidden mb-9 mt-1"
+        className="w-28 md:block hidden mb-9 mt-1"
       />
 
       <div

@@ -21,7 +21,7 @@ const AllRoutes = [
   },
   {
     name: "Products",
-    path: "/games/lists",
+    path: "/games",
     element: <Products />,
     private: true,
   },
