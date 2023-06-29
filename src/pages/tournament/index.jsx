@@ -3,7 +3,7 @@ import Layout from "../../layouts";
 import Heading from "../../components/Heading";
 import Button from "../../components/Button";
 import { BsPlus, BsThreeDots } from "react-icons/bs";
-import Drawer from "./Drawer";
+import NewTour from "./NewTour";
 import { GoSearch } from "react-icons/go";
 import { MdExpandLess, MdOutlineCloudDownload } from "react-icons/md";
 
@@ -191,7 +191,7 @@ const Tournaments = () => {
 
       {/* Add & Update Modal */}
       {openModal && (
-        <Drawer editData={editData} handleCloseModal={handleCloseModal} />
+        <NewTour editData={editData} handleCloseModal={handleCloseModal} />
       )}
     </div>
   );

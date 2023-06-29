@@ -5,6 +5,8 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { BsChatDots, BsChevronDown } from "react-icons/bs";
 import { MdClose, MdOutlineNotificationsActive } from "react-icons/md";
+import Notifications from "./Components/Notifications";
+import SearchBar from "./Components/SearchBar";
 
 const Header = ({ handleToggle, toggle }) => {
   const navigate = useNavigate();
@@ -17,23 +19,10 @@ const Header = ({ handleToggle, toggle }) => {
   return (
     <div className="p-2.5 shadow tracking-wider flex items-center">
       {showModal === "Search" ? (
-        <div className="w-full flex tracking-wider items-center gap-3">
-          <div className="flex justify-center items-center text-2xl sm:text-3xl font-bold w-7 h-7 sm:w-10 sm:h-10 text-color rounded-full p-1.5 sm:p-2.5 cursor-pointer">
-            <GoSearch />
-          </div>
-
-          <input
-            type="text"
-            className="w-full text-sm outline-none"
-            placeholder="Explore Battle Roof"
-          />
-          <div
-            onClick={() => handleOpenModal("Search")}
-            className="bg-color flex justify-center items-center text-2xl sm:text-3xl font-bold w-7 h-7 sm:w-10 sm:h-10 text-color rounded-full p-1.5 sm:p-2.5 cursor-pointer"
-          >
-            <MdClose />
-          </div>
-        </div>
+        <>
+          {/* Search Drawer */}
+          <SearchBar handleOpenModal={handleOpenModal} />
+        </>
       ) : (
         <>
           <HiOutlineMenu
@@ -41,6 +30,7 @@ const Header = ({ handleToggle, toggle }) => {
             className="sm:text-2xl text-xl cursor-pointer text-color"
           />
 
+          {/* Logo */}
           <img
             src={Logo}
             alt="ApkiStore"
@@ -50,7 +40,7 @@ const Header = ({ handleToggle, toggle }) => {
           />
 
           {/* Icons */}
-          <section className="flex relative items-center ml-auto gap-3 sm:gap-5">
+          <section className="flex sm:relative items-center ml-auto gap-3 sm:gap-5">
             <div
               onClick={() => handleOpenModal("Search")}
               className="bg-color flex justify-center items-center text-2xl sm:text-3xl font-bold w-8 h-8 sm:w-10 sm:h-10 text-color rounded-full p-1.5 sm:p-2.5 cursor-pointer"
@@ -64,12 +54,8 @@ const Header = ({ handleToggle, toggle }) => {
               <MdOutlineNotificationsActive />
             </div>
 
-            {/* Dropdown */}
-            {showModal === "Notification" && (
-              <div className="rounded p-2 h-80 w-72 text-sm gap-1.5 z-30 absolute top-12 left-0 bg-white  grid text-left shadow-lg border">
-                <div className="w-full text-lg font-medium">Notifications</div>
-              </div>
-            )}
+            {/* Notification Drawer */}
+            {showModal === "Notification" && <Notifications />}
 
             {/* Profile */}
             <section className="flex gap-2  sm:gap-3  items-center">
@@ -94,9 +80,9 @@ const Header = ({ handleToggle, toggle }) => {
               >
                 <BsChevronDown />
               </span>
-              {/* Dropdown */}
+              {/* Profile Drawer */}
               {showModal === "Profile" && (
-                <div className="rounded p-2 text-sm gap-1.5 pl-4 w-40 z-30 absolute top-12 right-0 bg-white  grid text-left shadow">
+                <div className="rounded p-2 text-sm gap-1.5 pl-4 w-40 z-30 absolute top-12 right-2 bg-white  grid text-left shadow">
                   <span className="cursor-pointer">My Profile</span>
                   <span className="cursor-pointer">Setting</span>
                   <hr />

@@ -1,15 +1,14 @@
 import { lazy } from "react";
-import Products from "../pages/products";
-import Tournaments from "../pages/tournament";
-import ViewProduct from "../pages/products/ViewProduct";
-import Setting from '../pages/setting'
-import Support from '../pages/support'
-import HowToPlay from '../pages/setting/howtoplay'
-import Transaction from '../pages/transaction'
-import Users from '../pages/users/'
-
+const Users = lazy(() => import("../pages/users/"));
+const Products = lazy(() => import("../pages/games"));
+const Setting = lazy(() => import("../pages/setting"));
+const Support = lazy(() => import("../pages/support"));
 const Login = lazy(() => import("../pages/auth/Login"));
 const Dashboard = lazy(() => import("../pages/dashboard"));
+const Tournaments = lazy(() => import("../pages/tournament"));
+const Transaction = lazy(() => import("../pages/transaction"));
+const ViewGame = lazy(() => import("../pages/games/ViewGame"));
+const HowToPlay = lazy(() => import("../pages/setting/howtoplay"));
 
 const AllRoutes = [
   {
@@ -34,7 +33,7 @@ const AllRoutes = [
   {
     name: "View Products",
     path: "/games/view/",
-    element: <ViewProduct />,
+    element: <ViewGame />,
     private: true,
   },
 
@@ -50,7 +49,7 @@ const AllRoutes = [
     element: <Users />,
     private: true,
   },
- 
+
   {
     name: "Transaction",
     path: "/transaction",
@@ -75,7 +74,6 @@ const AllRoutes = [
     element: <HowToPlay />,
     private: true,
   },
- 
 ];
 
 export default AllRoutes;

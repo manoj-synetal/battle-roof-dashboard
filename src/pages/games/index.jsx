@@ -3,10 +3,9 @@ import Layout from "../../layouts";
 import Heading from "../../components/Heading";
 import Button from "../../components/Button";
 import { BsPlus, BsThreeDots } from "react-icons/bs";
-import NewProduct from "./NewProduct";
+import NewGame from "./NewGame";
 import { GoSearch } from "react-icons/go";
 import { MdExpandLess, MdOutlineCloudDownload } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Products = () => {
   const [editData, setEditData] = useState();
@@ -21,7 +20,7 @@ const Products = () => {
 
   return (
     <div className="tracking-wider h-full">
-      <Heading title="Products" />
+      <Heading title="Games" />
 
       <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-white p-3 mt-2 sm:mt-3 rounded shadow">
         {/* search & button */}
@@ -53,40 +52,20 @@ const Products = () => {
             <thead>
               <tr>
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
-                  Game
+                  Name
                 </th>
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Tournament
+                  Image
                 </th>
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Type
+                  Banner
                 </th>
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Link
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Map
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Fee
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Prize
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Slots
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Mode
-                </th>
+
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Status
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Time
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Image
                 </th>
 
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
@@ -103,17 +82,6 @@ const Products = () => {
                     } border-b`}
                   >
                     <td className="px-4 py-2 text-color">PUBG</td>
-                    <td className="px-4 py-2">BattleRoof</td>
-                    <td className="px-4 py-2">Solo</td>
-                    <td className="px-4 py-2">http:/google.com</td>
-                    <td className="px-4 py-2">Erangle</td>
-                    <td className="px-4 py-2">100$</td>
-                    <td className="px-4 py-2">1000$</td>
-                    <td className="px-4 py-2">43 Left</td>
-                    <td className="px-4 py-2">Active</td>
-                    <td className="px-4 py-2">Completed</td>
-
-                    <td className="px-4 py-2">26/03/2023</td>
 
                     <td className="px-4 py-2  text-gray-900">
                       <img
@@ -122,6 +90,15 @@ const Products = () => {
                         className="w-9 h-9 rounded-full object-cover object-top"
                       />
                     </td>
+                    <td className="px-4 py-2  text-gray-900">
+                      <img
+                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
+                        alt=""
+                        className="w-9 h-9 rounded-full object-cover object-top"
+                      />
+                    </td>
+                    <td className="px-4 py-2">----</td>
+                    <td className="px-4 py-2">Active</td>
 
                     <td className="px-4 text-center  sm:relative ">
                       <BsThreeDots
@@ -192,7 +169,7 @@ const Products = () => {
 
       {/* Add & Update Modal */}
       {openModal && (
-        <NewProduct editData={editData} handleCloseModal={handleCloseModal} />
+        <NewGame editData={editData} handleCloseModal={handleCloseModal} />
       )}
     </div>
   );

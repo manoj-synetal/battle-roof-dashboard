@@ -8,9 +8,11 @@ import {
 } from "react-icons/md";
 import { FaGamepad, FaOpencart, FaProductHunt } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { BsChevronDown, BsChevronUp, BsFillGearFill } from "react-icons/bs";
 import Button2 from "../components/Button2";
-import { BiArrowBack } from "react-icons/bi";
+import { BiArrowBack, BiSupport } from "react-icons/bi";
+import { FiUsers } from "react-icons/fi";
+import { AiOutlineTransaction } from "react-icons/ai";
 
 const Sidebar = ({ handleToggle }) => {
   const location = useLocation();
@@ -44,33 +46,31 @@ const Sidebar = ({ handleToggle }) => {
     {
       name: "Users",
       path: "/users",
-      icon: <FaOpencart />,
+      icon: <FiUsers />,
     },
     {
       name: "Transaction",
       path: "/transaction",
-      icon: <FaOpencart />,
+      icon: <AiOutlineTransaction />,
     },
     {
       name: "Support",
       path: "/support",
-      icon: <FaOpencart />,
+      icon: <BiSupport />,
     },
-    
+
     {
       name: "Setting",
       path: "/setting",
-      icon: <FaOpencart />,
+      icon: <BsFillGearFill />,
       other: [
         {
           name: "How To Play",
           path: "/howtoplay",
           icon: <FaOpencart />,
         },
-      ]
+      ],
     },
-
-   
   ];
 
   return (
@@ -119,11 +119,11 @@ const Sidebar = ({ handleToggle }) => {
 
               {/* Nested Links */}
               {item.other && dropdown && (
-                <div className="flex flex-col gap-2 p-2 pt-0 rounded mb-3">
+                <div className="flex text-sm flex-col gap-2 p-2 pt-0 rounded mb-3">
                   {item.other.map((ite) => {
                     return (
-                      <div className="flex items-center gap-2.5">
-                        <MdRadioButtonUnchecked />
+                      <div className="flex items-center gap-1.5">
+                        <MdRadioButtonChecked />
                         <Link
                           key={ite.name}
                           to={ite.path}
