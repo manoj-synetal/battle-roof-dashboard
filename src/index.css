@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+label {
+  color: gray;
+}
+
+.text-color,
+.hover-text-color:hover {
+  color: rgb(34, 30, 207);
+}
+
+.bg-color {
+  background-color: rgb(248, 248, 252);
+}
+
+.bg-primary-button {
+  background-color: rgb(34, 30, 207);
+}
+
+.bg-secondary-button {
+  background-color: rgba(123, 123, 131, 0.836);
+}
+
+.bg-modal {
+  background: rgb(0, 0, 0, 0.3);
+}
+.table-container {
+  position: relative;
+  overflow-y: scroll;
+  max-height: calc(
+    100% - 2.5rem
+  ); /* Subtract the height of pagination or other elements if applicable */
+}
+
+.table-container::-webkit-scrollbar {
+  width: 0px;
+  display: none; /* Width of the scrollbar */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: transparent; /* Background color of the scrollbar track */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners of the scrollbar thumb */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Color of the scrollbar thumb on hover */
+}
+
+.table-container::-webkit-scrollbar-thumb:active {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Color of the scrollbar thumb when active/pressed */
+}
+
+.table-container::-webkit-scrollbar-corner {
+  background: transparent; /* Background color of the scrollbar corner */
+}
