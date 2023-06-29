@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import { BsPlus, BsThreeDots } from "react-icons/bs";
 import NewProduct from "./NewProduct";
 import { GoSearch } from "react-icons/go";
-import { MdExpandLess } from "react-icons/md";
+import { MdExpandLess, MdOutlineCloudDownload } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Products = () => {
@@ -30,15 +30,21 @@ const Products = () => {
             <input
               type="text"
               className=" outline-none tracking-wider text-sm w-full"
-              placeholder="Search Products..."
+              placeholder="Search Games..."
             />
             <GoSearch className="text-gray-500 text-xl cursor-pointer ml-2" />
           </div>
-          <Button
-            title={`Add New Product`}
-            icon={<BsPlus className="text-xl" />}
-            event={handleOpenModal}
-          />
+          <span className="grid grid-cols-2 gap-2">
+            <Button
+              title={`Export`}
+              icon={<MdOutlineCloudDownload className="text-xl" />}
+            />
+            <Button
+              title={`Add Games`}
+              icon={<BsPlus className="text-xl" />}
+              event={handleOpenModal}
+            />
+          </span>
         </div>
 
         {/* Table Data */}
@@ -46,41 +52,69 @@ const Products = () => {
           <table className="w-full text-left whitespace-no-wrap">
             <thead>
               <tr>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
-                  Name
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
+                  Game
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Description
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Tournament
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Prices
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Type
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Image
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Link
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Map
+                </th>
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Fee
+                </th>
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Prize
+                </th>
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Slots
+                </th>
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Mode
+                </th>
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Status
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Time
+                </th>
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Image
+                </th>
+
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
                   Action
                 </th>
               </tr>
             </thead>
-            <tbody className="text-sm relative h-full overflow-y-auto">
-              {["", "", "", "", "", "", "", ""].map((item, i) => {
+            <tbody className="text-xs relative h-full overflow-y-auto">
+              {["", "", "", "", "", "", "", "", ""].map((item, i) => {
                 return (
                   <tr
                     className={`${
                       i % 2 !== 0 && "bg-[rgb(248,248,252)]"
                     } border-b`}
                   >
-                    <td className="px-4 py-2 text-color">Jeans</td>
-                    <td className="px-4 py-2">This is the best jeans</td>
-                    <td className="px-4 py-2">
-                      <div>
-                        Price : <span className="font-bold">Rs.100</span>
-                      </div>
-                    </td>
+                    <td className="px-4 py-2 text-color">PUBG</td>
+                    <td className="px-4 py-2">BattleRoof</td>
+                    <td className="px-4 py-2">Solo</td>
+                    <td className="px-4 py-2">http:/google.com</td>
+                    <td className="px-4 py-2">Erangle</td>
+                    <td className="px-4 py-2">100$</td>
+                    <td className="px-4 py-2">1000$</td>
+                    <td className="px-4 py-2">43 Left</td>
+                    <td className="px-4 py-2">Active</td>
+                    <td className="px-4 py-2">Completed</td>
+
+                    <td className="px-4 py-2">26/03/2023</td>
+
                     <td className="px-4 py-2  text-gray-900">
                       <img
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
@@ -88,8 +122,8 @@ const Products = () => {
                         className="w-9 h-9 rounded-full object-cover object-top"
                       />
                     </td>
-                    <td className="px-4 py-2  text-gray-900">Published</td>
-                    <td className="px-4 text-center sm:relative ">
+
+                    <td className="px-4 text-center  sm:relative ">
                       <BsThreeDots
                         onClick={() => {
                           setShowOption(showOption === i ? "" : i);
@@ -108,9 +142,9 @@ const Products = () => {
                           >
                             Edit
                           </span>
-                          <Link to="/games/view/" className="cursor-pointer">
+                          <a href="/product/view/" className="cursor-pointer">
                             View
-                          </Link>
+                          </a>
                           <span
                             onClick={() => setShowOption("")}
                             className="cursor-pointer"

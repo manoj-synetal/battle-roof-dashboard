@@ -63,14 +63,11 @@ const Header = ({ handleToggle, toggle }) => {
             >
               <MdOutlineNotificationsActive />
             </div>
-            <div className="bg-color flex justify-center items-center text-2xl sm:text-3xl font-bold w-8 h-8 sm:w-10 sm:h-10 text-color rounded-full p-1.5 sm:p-2.5 cursor-pointer">
-              <BsChatDots />
-            </div>
 
             {/* Dropdown */}
             {showModal === "Notification" && (
-              <div className="rounded p-2 w-60 text-sm gap-1.5 pl-4 z-30 absolute top-12 left-0 bg-white  grid text-left shadow">
-                Notifications
+              <div className="rounded p-2 h-80 w-72 text-sm gap-1.5 z-30 absolute top-12 left-0 bg-white  grid text-left shadow-lg border">
+                <div className="w-full text-lg font-medium">Notifications</div>
               </div>
             )}
 

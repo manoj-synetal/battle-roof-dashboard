@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import { BsPlus, BsThreeDots } from "react-icons/bs";
 import Drawer from "./Drawer";
 import { GoSearch } from "react-icons/go";
-import { MdExpandLess } from "react-icons/md";
+import { MdExpandLess, MdOutlineCloudDownload } from "react-icons/md";
 
 const Tournaments = () => {
   const [editData, setEditData] = useState();
@@ -33,11 +33,17 @@ const Tournaments = () => {
             />
             <GoSearch className="text-gray-500 text-xl cursor-pointer ml-2" />
           </div>
-          <Button
-            title={`Add New Tournament`}
-            icon={<BsPlus className="text-xl" />}
-            event={handleOpenModal}
-          />
+          <div className="grid grid-cols-2 gap-2">
+            <Button
+              title={`Export`}
+              icon={<MdOutlineCloudDownload className="text-xl" />}
+            />
+            <Button
+              title={`Add Tournament`}
+              icon={<BsPlus className="text-xl" />}
+              event={handleOpenModal}
+            />
+          </div>
         </div>
 
         {/* Table Data */}
@@ -45,49 +51,49 @@ const Tournaments = () => {
           <table className="w-full text-left whitespace-no-wrap">
             <thead>
               <tr>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
-                  Game Name
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
+                  Game
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Tournament Name
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Tournament
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Type
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Link
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Map
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Entry Fee
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Fee
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Prize Pool
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Prize
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Total Slots
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Slots
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Game Mode
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Mode
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Status
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
                   Time
                 </th>
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Images
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                  Image
                 </th>
 
-                <th className="p-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
                   Action
                 </th>
               </tr>
             </thead>
-            <tbody className="text-sm relative h-full overflow-y-auto">
+            <tbody className="text-xs relative h-full overflow-y-auto">
               {["", "", "", "", "", "", "", "", ""].map((item, i) => {
                 return (
                   <tr
@@ -116,7 +122,7 @@ const Tournaments = () => {
                       />
                     </td>
 
-                    <td className="px-4 text-center ">
+                    <td className="px-4 text-center  sm:relative ">
                       <BsThreeDots
                         onClick={() => {
                           setShowOption(showOption === i ? "" : i);
@@ -124,7 +130,7 @@ const Tournaments = () => {
                         className="text-xl cursor-pointer"
                       />
                       {showOption === i && (
-                        <div className="rounded p-2 gap-1.5 pl-4 pr-8 z-30 absolute top-12 right-0 bg-white  grid text-left shadow">
+                        <div className="rounded p-2 gap-1.5 pl-4 z-30 absolute top-12 sm:left-0 right-0 bg-white  grid text-left shadow">
                           <span
                             onClick={() => {
                               handleOpenModal();
