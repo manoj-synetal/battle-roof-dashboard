@@ -1,10 +1,12 @@
 import { lazy } from "react";
+
 const Users = lazy(() => import("../pages/users/"));
 const Products = lazy(() => import("../pages/games"));
 const Setting = lazy(() => import("../pages/setting"));
 const Support = lazy(() => import("../pages/support"));
 const Login = lazy(() => import("../pages/auth/Login"));
 const Dashboard = lazy(() => import("../pages/dashboard"));
+const Profile = lazy(() => import("../pages/setting/profile"));
 const Tournaments = lazy(() => import("../pages/tournament"));
 const Transaction = lazy(() => import("../pages/transaction"));
 const ViewGame = lazy(() => import("../pages/games/ViewGame"));
@@ -70,8 +72,14 @@ const AllRoutes = [
   },
   {
     name: "How To Play",
-    path: "/howToPlay",
+    path: "/setting/howToPlay",
     element: <HowToPlay />,
+    private: true,
+  },
+  {
+    name: "Profile",
+    path: "/setting/profile",
+    element: <Profile />,
     private: true,
   },
 ];
