@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import Products from "../pages/products";
-import Orders from "../pages/orders";
+import Tournaments from "../pages/tournament";
 import ViewProduct from "../pages/products/ViewProduct";
 
 const Login = lazy(() => import("../pages/auth/Login"));
@@ -34,9 +34,9 @@ const AllRoutes = [
   },
 
   {
-    name: "Orders",
-    path: "/orders",
-    element: <Orders />,
+    name: "Tournaments",
+    path: "/Tournaments",
+    element: <Tournaments />,
     private: true,
   },
 ];
