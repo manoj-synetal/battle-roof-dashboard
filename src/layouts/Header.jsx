@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { BsChevronDown } from "react-icons/bs";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import SearchBar from "./Components/SearchBar";
+import UpdateProfile from "./Components/UpdateProfile";
 
 const Header = ({ handleToggle, toggle }) => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState();
+  const [updateProfile, setUpdateProfile] = useState(false);
 
   const { email, role, name } = JSON.parse(localStorage.getItem("Admin"));
 
@@ -81,7 +83,7 @@ const Header = ({ handleToggle, toggle }) => {
               </button>
               {/* Profile Drawer */}
               {showModal === "Profile" && (
-                <div className="rounded p-3 text-sm gap-1.5 pl-4 w-40 z-30 absolute top-14 right-2  bg-secondary  grid text-left shadow">
+                <div className="rounded p-3  gap-1.5 w-36 z-30 absolute top-16 sm:top-14 right-3   bg-secondary text-xs  grid text-left shadow">
                   <span
                     onClick={() => {
                       navigate("/setting/profile");
@@ -90,6 +92,16 @@ const Header = ({ handleToggle, toggle }) => {
                     className="cursor-pointer"
                   >
                     My Profile
+                  </span>
+
+                  <span
+                    onClick={() => {
+                      setUpdateProfile(true);
+                      handleOpenModal("Profile");
+                    }}
+                    className="cursor-pointer"
+                  >
+                    Update Profile
                   </span>
                   <span
                     onClick={() => {
@@ -104,6 +116,11 @@ const Header = ({ handleToggle, toggle }) => {
               )}
             </section>
           </section>
+
+          {/* Update Profile */}
+          {updateProfile && (
+            <UpdateProfile handleCloseModal={() => setUpdateProfile(false)} />
+          )}
         </>
       )}
     </div>
