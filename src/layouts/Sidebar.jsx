@@ -73,13 +73,13 @@ const Sidebar = ({ handleToggle }) => {
       icon: <BsFillGearFill />,
       other: [
         {
-         id:1,
+         
           name: "Profile",
           path: "/setting/profile",
           icon: <FaOpencart />,
         },
         {
-         id:2,
+        
           name: "How To Play",
           path: "/setting/howtoplay",
           icon: <FaOpencart />,
