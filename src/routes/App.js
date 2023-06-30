@@ -3,16 +3,18 @@ import AllRoutes from "./AllRoutes";
 import { Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <Toaster />
       <Routes>
         {AllRoutes.map((item) => {
           return (
             <Route
               key={item.name}
-              // element={item.private ? <PrivateRoute /> : <PublicRoute />}
+              element={item.private ? <PrivateRoute /> : <PublicRoute />}
             >
               <Route
                 name={item.name}
