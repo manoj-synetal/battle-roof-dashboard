@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import { BsChatDots, BsChevronDown } from "react-icons/bs";
-import { MdClose, MdOutlineNotificationsActive } from "react-icons/md";
-import Notifications from "./Components/Notifications";
+import { BsChevronDown } from "react-icons/bs";
+import { MdOutlineNotificationsActive } from "react-icons/md";
 import SearchBar from "./Components/SearchBar";
 
 const Header = ({ handleToggle, toggle }) => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState();
+
+  const { email, role, name } = JSON.parse(localStorage.getItem("Admin"));
 
   // handleOpenModal
   const handleOpenModal = (value) =>
@@ -65,8 +66,10 @@ const Header = ({ handleToggle, toggle }) => {
                 />
               </div>
               <div className="sm:flex hidden flex-col">
-                <span className="text-sm font-bold text-color">Merchant</span>
-                <span className="text-xs ">apkistore@gamil.com</span>
+                <span className="text-sm font-bold text-color capitalize">
+                  {role}
+                </span>
+                <span className="text-xs ">{email}</span>
               </div>
               {/* Down Arrow */}
               <button
@@ -90,7 +93,7 @@ const Header = ({ handleToggle, toggle }) => {
                   </span>
                   <span
                     onClick={() => {
-                      localStorage.removeItem("AccessToken");
+                      localStorage.clear();
                       navigate("/");
                     }}
                     className="cursor-pointer"

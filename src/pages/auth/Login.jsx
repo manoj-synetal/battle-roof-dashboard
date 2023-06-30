@@ -23,9 +23,8 @@ const Login = () => {
     if (!email || !password) {
       toast.error("Please fill the fields");
     } else {
-      // const callBack = () => naviagte("/dashboard");
-      // dispatch(authLogin(callBack));
-      navigate("/dashboard")
+      const callBack = () => navigate("/dashboard");
+      dispatch(authLogin(formInput, callBack));
     }
   };
 
