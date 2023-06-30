@@ -13,8 +13,8 @@ export const authLogin = (payload, callBack) => async (dispatch) => {
 
     toast.success(message);
     localStorage.setItem("AccessToken", token);
-    localStorage.setItem("Admin", JSON.stringify(user));
-
+    localStorage.setItem("Admin", JSON.stringify(user))
+    
     callBack();
   } catch (error) {
     const { message } = error.response.data;
