@@ -28,47 +28,57 @@ const Sidebar = ({ handleToggle }) => {
   // navlinks
   const navLinks = [
     {
+
+     id:1,
       name: "Dashboard",
       path: "/dashboard",
       icon: <MdOutlineSpaceDashboard />,
     },
     {
+     id:2,
       name: "Games",
       icon: <FaGamepad />,
       path: "/games",
     },
     {
+     id:3,
       name: "Tournaments",
       path: "/tournaments",
       icon: <MdOutlineGames />,
     },
     {
+     id:4,
       name: "Users",
       path: "/users",
       icon: <FiUsers />,
     },
     {
+     id:4,
       name: "Transaction",
       path: "/transaction",
       icon: <AiOutlineTransaction />,
     },
     {
+     id:5,
       name: "Support",
       path: "/support",
       icon: <BiSupport />,
     },
 
     {
+     id:6,
       name: "Setting",
       path: "/setting",
       icon: <BsFillGearFill />,
       other: [
         {
+         id:1,
           name: "Profile",
           path: "/setting/profile",
           icon: <FaOpencart />,
         },
         {
+         id:2,
           name: "How To Play",
           path: "/setting/howtoplay",
           icon: <FaOpencart />,
@@ -111,7 +121,7 @@ const Sidebar = ({ handleToggle }) => {
                       : "text-gray-500 "
                   } hover-text-color text-sm  flex items-center gap-3 `}
                 >
-                  <span className="text-lg">{item.icon}</span>
+                  <span className="text-lg" key={item.name}>{item.icon}</span>
                   {item.name}
                 </div>
                 {item.other && (
@@ -124,9 +134,10 @@ const Sidebar = ({ handleToggle }) => {
               {/* Nested Links */}
               {item.other && dropdown && (
                 <div className="flex text-sm flex-col gap-2 p-2 pt-0 rounded mb-3">
-                  {item.other.map((ite) => {
+                  {item.other.map((id,ite) => {
                     return (
-                      <div className="flex items-center gap-1.5">
+
+                      <div  className="flex items-center gap-1.5">
                         <MdRadioButtonUnchecked className="text-sm" />
                         <Link
                           key={ite.name}

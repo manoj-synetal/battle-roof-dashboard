@@ -12,7 +12,7 @@ const options = [
 const NewTour = ({ handleCloseModal, editData }) => {
   return (
     <div className="tracking-wider overflow-hidden absolute z-50 top-0 flex justify-end left-0 w-full h-screen bg-modal">
-      <div className="w-96 md:w-1/2 h-full overflow-auto lg:w-1/3 p-4 bg-white">
+      <div className="w-96 md:w-1/2 h-full overflow-auto lg:w-1/3 p-4 bg-secondary">
         {/* Top */}
         <div className="flex justify-between items-center">
           <span className="text-color">
@@ -33,19 +33,22 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="tournamentName"
               type="text"
-              className="rounded py-1 px-2 outline-none border"
+              className="rounded py-1 px-2  border
+               outline-none bg-transparent tracking-wider text-sm w-full"
+              placeholder= " Tournament Name..."
+          
             />
           </div>
 
           {/* GameName */}
           <div className="grid gap-1">
             <label htmlFor="name" className="text-sm">
-              Name*
+             Game Name*
             </label>
             <select
               id="name"
               type="text"
-              className="rounded text-sm p-2 outline-none border"
+              className="rounded bg-transparent text-sm p-2 outline-none border"
             >
               <option value={1}>Active</option>
               <option value={0}>InActive</option>
@@ -60,7 +63,7 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <select
               id="name"
               type="text"
-              className="rounded text-sm p-2 outline-none border"
+              className="rounded bg-transparent text-sm p-2 outline-none border"
             >
               <option value={1}>Active</option>
               <option value={0}>InActive</option>
@@ -75,7 +78,8 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="fee"
               type="text"
-              className="rounded py-1 px-2 outline-none border"
+              className="rounded bg-transparent  py-1 px-2 outline-none border"
+              placeholder=" Fees..."
             />
           </div>
 
@@ -87,7 +91,8 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="prizepool"
               type="text"
-              className="rounded py-1 px-2 outline-none border"
+              className="rounded bg-transparent py-1 px-2 outline-none border"
+              placeholder=" Prize Pool..."
             />
           </div>
 
@@ -99,7 +104,8 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="slots"
               type="text"
-              className="rounded py-1 px-2 outline-none border"
+              className="rounded bg-transparent py-1 px-2 outline-none border"
+              placeholder=" Total Slots..."
             />
           </div>
 
@@ -111,7 +117,8 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="mode"
               type="text"
-              className="rounded py-1 px-2 outline-none border"
+              className="rounded bg-transparent py-1 px-2 outline-none border"
+              placeholder=" Game Mode..."
             />
           </div>
 
@@ -123,7 +130,8 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="status"
               type="text"
-              className="rounded py-1 px-2 outline-none border"
+              placeholder=" Status..."
+              className="rounded bg-transparent py-1 px-2 outline-none border"
             />
           </div>
 
@@ -135,7 +143,8 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="time"
               type="datetime-local"
-              className="rounded py-1 px-2 outline-none border"
+              className="rounded bg-transparent py-1 px-2 outline-none border"
+             
             />
           </div>
 
@@ -147,7 +156,7 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <select
               id="name"
               type="text"
-              className="rounded text-sm p-2 outline-none border"
+              className="rounded bg-transparent text-sm p-2 outline-none border"
             >
               <option value={1}>Active</option>
               <option value={0}>InActive</option>

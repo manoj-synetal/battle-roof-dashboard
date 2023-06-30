@@ -27,7 +27,10 @@ const dummy = [
   {
     name: "Hill Climb Racing",
   },
+   
+  
 ];
+
 
 const Products = () => {
   const [editData, setEditData] = useState();
@@ -55,7 +58,7 @@ const Products = () => {
     setEditData();
   };
 
-  // hanle search
+  // handle search
   const filteredData = dummy.filter(
     (item) =>
       item.name && item.name?.toLowerCase().includes(searchValue?.toLowerCase())
@@ -89,7 +92,7 @@ const Products = () => {
     <div className="tracking-wider h-full">
       <Heading title="Games" />
 
-      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-secondary p-3 mt-2 sm:mt-3 rounded shadow">
+      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-secondary p-3 mt-2 sm:mt-3 rounded shadow ">
         {/* search & button */}
         <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
           <div className="rounded-full flex w-full sm:w-60 items-center border  p-2 pl-4 ">
@@ -120,24 +123,24 @@ const Products = () => {
           <table className="w-full down  text-left whitespace-no-wrap">
             <thead>
               <tr>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tl-lg ">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-sm table-head rounded-tl-lg ">
                   Name
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                <th className="p-3 px-4 title-font tracking-wider font-medium  text-sm table-head">
                   Image
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-sm table-head">
                   Banner
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-sm table-head">
                   Link
                 </th>
 
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-sm table-head">
                   Status
                 </th>
 
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tr-lg ">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-sm table-head rounded-tr-lg ">
                   Action
                 </th>
               </tr>
