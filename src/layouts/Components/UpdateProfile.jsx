@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { MdClose } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { updateProfile } from "../../redux/actions/authAction";
 
 const UpdateProfile = ({ handleCloseModal }) => {
+  const dispatch = useDispatch();
   const [formInput, setFormInput] = useState({});
 
   // handleChange
@@ -12,6 +15,18 @@ const UpdateProfile = ({ handleCloseModal }) => {
     } else {
       setFormInput({ ...formInput, [name]: value });
     }
+  };
+
+  // handleSubmit
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const { mobileNumber, name, profilePicture } = formInput;
+    const payload = new FormData();
+    payload.append(name);
+    payload.append(mobileNumber);
+    payload.append(profilePicture);
+
+    dispatch(updateProfile(payload));
   };
 
   return (
@@ -26,7 +41,7 @@ const UpdateProfile = ({ handleCloseModal }) => {
           />
         </div>
 
-        <form className="mt-10 grid gap-5">
+        <form onSubmit={handleSubmit} className="mt-10 grid gap-5">
           {/* Profile Picture */}
           <div className="mb-4">
             <div className="relative w-36 h-36 border-2 p-0.5 border-color rounded-full mx-auto">
