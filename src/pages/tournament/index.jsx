@@ -48,7 +48,7 @@ const Tournaments = () => {
 
         {/* Table Data */}
         <div className="table-container">
-          <table className="w-full text-left whitespace-no-wrap">
+          <table className="w-full text-left whitespace-nowrap">
             <thead>
               <tr>
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">

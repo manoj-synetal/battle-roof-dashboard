@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsPlus, BsThreeDots } from "react-icons/bs";
+import { BsPlus, BsThreeDots, BsTrash3 } from "react-icons/bs";
 import { MdOutlineCloudDownload } from "react-icons/md";
 
 import NewGame from "./NewGame";
@@ -7,6 +7,8 @@ import Layout from "../../layouts";
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
 import Pagination from "../../components/Pagination";
+import { AiOutlineEdit, AiOutlineEye } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const dummy = [
   {
@@ -91,11 +93,11 @@ const Products = () => {
 
       <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-secondary p-3 mt-2 sm:mt-3 rounded shadow">
         {/* search & button */}
-        <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
-          <div className="rounded-full flex w-full sm:w-60 items-center border  p-2 pl-4 ">
+        <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-4 sm:items-center sm:justify-between">
+          <div className="rounded-full border-color flex w-full sm:w-60 items-center border  p-2 pl-4 ">
             <input
               type="text"
-              className=" outline-none bg-transparent tracking-wider text-sm w-full"
+              className=" outline-none  bg-transparent tracking-wider text-sm w-full"
               placeholder="Search Games..."
               value={searchValue}
               onChange={(event) => setSearchValue(event.target.value)}
@@ -151,26 +153,26 @@ const Products = () => {
                       key={item.name}
                       className={`${i % 2 !== 0 && "table-head"}`}
                     >
-                      <td className="px-4 py-3">{item.name}</td>
+                      <td className="px-4 py-2.5">{item.name}</td>
 
-                      <td className="px-4 py-3  ">
+                      <td className="px-4 py-2.5  ">
                         <img
                           src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
                           alt=""
                           className="w-8 h-8 rounded-full object-cover object-top"
                         />
                       </td>
-                      <td className="px-4 py-3  ">
+                      <td className="px-4 py-2.5  ">
                         <img
                           src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
                           alt=""
                           className="w-8 h-8 rounded-full object-cover object-top"
                         />
                       </td>
-                      <td className="px-4 py-3">----</td>
-                      <td className="px-4 py-3">Active</td>
+                      <td className="px-4 py-2.5">----</td>
+                      <td className="px-4 py-2.5">Active</td>
 
-                      <td className="px-4 text-center  sm:relative ">
+                      <td className="px-4 text-center relative ">
                         <BsThreeDots
                           onClick={() => {
                             setShowOption(showOption === i ? "" : i);
@@ -178,25 +180,29 @@ const Products = () => {
                           className="text-xl cursor-pointer"
                         />
                         {showOption === i && (
-                          <div className="rounded p-2 gap-1.5 pl-4 z-30 absolute top-12 sm:left-0 right-0 bg-white  grid text-left shadow">
+                          <div className="rounded z-30 icon-bg absolute top-10 p-2 border border-color max-w-[100px] justify-center  sm:left-3 flex-col right-2 text-color gap-4 flex ">
                             <span
                               onClick={() => {
                                 handleOpenModal();
                                 setEditData({ h: "l" });
                                 setShowOption("");
                               }}
-                              className="cursor-pointer"
+                              className="cursor-pointer flex items-center gap-2"
                             >
-                              Edit
+                              <AiOutlineEdit /> Edit
                             </span>
-                            <a href="/product/view/" className="cursor-pointer">
-                              View
-                            </a>
+
+                            <Link
+                              to="/games/view/"
+                              className="cursor-pointer flex items-center gap-2"
+                            >
+                              <AiOutlineEye /> View
+                            </Link>
                             <span
                               onClick={() => setShowOption("")}
-                              className="cursor-pointer"
+                              className="cursor-pointer flex items-center gap-2"
                             >
-                              Delete
+                              <BsTrash3 /> Delete
                             </span>
                           </div>
                         )}

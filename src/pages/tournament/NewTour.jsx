@@ -1,7 +1,5 @@
 import React from "react";
-import Select from "react-select";
-import { MdClose, MdOutlineCloudUpload } from "react-icons/md";
-import Button from "../../components/Button";
+import { MdClose } from "react-icons/md";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -12,7 +10,7 @@ const options = [
 const NewTour = ({ handleCloseModal, editData }) => {
   return (
     <div className="tracking-wider overflow-hidden absolute z-50 top-0 flex justify-end left-0 w-full h-screen bg-modal">
-      <div className="w-96 md:w-1/2 h-full overflow-auto lg:w-1/3 p-4 bg-white">
+      <div className="w-96 md:w-1/2 h-full overflow-auto lg:w-1/3 p-4 bg-secondary">
         {/* Top */}
         <div className="flex justify-between items-center">
           <span className="text-color">
@@ -156,7 +154,7 @@ const NewTour = ({ handleCloseModal, editData }) => {
 
           <button
             type="submit"
-            className="bg-primary-button justify-center flex items-center cursor-pointer tracking-wider py-2 px-4 rounded text-white"
+            className="bg-button justify-center flex items-center cursor-pointer tracking-wider py-2 px-4 rounded text-white"
           >
             Submit
           </button>

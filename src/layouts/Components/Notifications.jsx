@@ -2,8 +2,8 @@ import React from "react";
 
 const Notifications = () => {
   return (
-    <div className="rounded h-72 sm:h-72 w-60 sm:w-72 text-sm z-30 absolute top-14 sm:top-12 right-3  sm:left-0 bg-secondary text-left shadow-lg">
-      <div className="w-full py-2 px-3 shadow bg-secondary text-lg  rounded-t font-medium">
+    <div className="rounded h-72 sm:h-72 w-60 sm:w-72 text-sm z-30 absolute top-16 sm:top-14 right-3 sm:left-0 bg-secondary text-left shadow-lg">
+      <div className="w-full p-2 sm:p-3 shadow bg-secondary  rounded-t font-medium">
         Notifications
       </div>
       <section className="h-[223px] notification-container overflow-y-auto">
@@ -26,7 +26,7 @@ const Notifications = () => {
         })}
       </section>
 
-      <div className="w-full py-2 px-3  rounded-b text-sm text-center cursor-pointer bg-secondary font-medium">
+      <div className="w-full  p-2 sm:p-3 shadow rounded-b text-center cursor-pointer bg-secondary font-medium">
         Read All Notifications
       </div>
     </div>
