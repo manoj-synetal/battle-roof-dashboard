@@ -6,7 +6,7 @@ import { authLogin } from "../../redux/actions/authAction";
 import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.authReducer);
   const [formInput, setFormInput] = useState({});
@@ -23,8 +23,9 @@ const Login = () => {
     if (!email || !password) {
       toast.error("Please fill the fields");
     } else {
-      const callBack = () => naviagte("/dashboard");
-      dispatch(authLogin(callBack));
+      // const callBack = () => naviagte("/dashboard");
+      // dispatch(authLogin(callBack));
+      navigate("/dashboard")
     }
   };
 
