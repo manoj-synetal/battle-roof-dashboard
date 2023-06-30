@@ -89,7 +89,10 @@ const Header = ({ handleToggle, toggle }) => {
                     My Profile
                   </span>
                   <span
-                    onClick={() => navigate("/")}
+                    onClick={() => {
+                      localStorage.removeItem("AccessToken");
+                      navigate("/");
+                    }}
                     className="cursor-pointer"
                   >
                     Sign Out

@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex w-full h-screen mx-auto overflow-hidden  rounded-lg shadow-lg  ">
+    <div className="flex w-full h-screen mx-auto overflow-hidden shadow-lg  ">
       <div
         className="hidden bg-cover lg:block lg:w-2/3"
         style={{

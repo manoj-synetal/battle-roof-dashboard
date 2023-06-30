@@ -4,17 +4,24 @@ import { Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import { Toaster } from "react-hot-toast";
+import Logo from "../assets/Logo.png";
 
 const App = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="h-screen w-full flex justify-center items-center">
+          <img src={Logo} className="w-44" />
+        </div>
+      }
+    >
       <Toaster />
       <Routes>
         {AllRoutes.map((item) => {
           return (
             <Route
               key={item.name}
-              element={item.private ? <PrivateRoute /> : <PublicRoute />}
+              // element={item.private ? <PrivateRoute /> : <PublicRoute />}
             >
               <Route
                 name={item.name}
