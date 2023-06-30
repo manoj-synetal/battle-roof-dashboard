@@ -75,7 +75,7 @@ const Tournaments = () => {
           <div className="rounded flex w-full sm:w-60 items-center  py-2 px-2.5 border">
             <input
               type="text"
-              className=" outline-none bg-transparent tracking-wider text-sm w-full"
+              className=" outline-none tracking-wider text-sm w-full"
               placeholder="Search Tournament..."
               value={searchValue}
               onChange={(event) => setSearchValue(event.target.value)}
@@ -97,13 +97,8 @@ const Tournaments = () => {
 
         {/* Table Data */}
         <div className="table-container">
-<<<<<<< HEAD
           <table className="w-full text-left whitespace-no-wrap">
             <thead className="table-head">
-=======
-          <table className="w-full text-left whitespace-nowrap">
-            <thead>
->>>>>>> 71f8a8e120e374b278ef1b8405499a5c3db5f8ea
               <tr>
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tl-lg ">
                   Game

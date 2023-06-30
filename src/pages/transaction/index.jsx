@@ -23,7 +23,7 @@ const Transaction = () => {
     <div className="tracking-wider h-full">
       <Heading title="Transactions" />
 
-      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-white p-3 mt-2 sm:mt-3 rounded shadow">
+      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 bg-secondary sm:pb-14 p-3 mt-2 sm:mt-3 rounded shadow">
         {/* search & button */}
         {/* <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
           <div className="rounded flex w-full sm:w-60 items-center  py-2 px-2.5 border">
@@ -52,27 +52,27 @@ const Transaction = () => {
           <table className="w-full text-left whitespace-no-wrap">
             <thead>
               <tr>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tl-lg ">
                   Transaction ID
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
                   Amount
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
                   Type
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
                   Date
                 </th>
                
                 
                
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
                   Status
                 </th>
               
 
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tr-lg ">
                   Action
                 </th>
               </tr>
@@ -81,8 +81,8 @@ const Transaction = () => {
               {["", "", "", "", "", "", "", "", ""].map((item, i) => {
                 return (
                   <tr
-                    className={`${i % 2 !== 0 && "bg-[rgb(248,248,252)]"
-                      } border-b`}
+                    className={`${i % 2 !== 0 && "table-head"
+                      } `}
                   >
                     <td className="px-4 py-7 text-color">#ADGF3754345</td>
                     <td className="px-4 py-7 text-color">100$</td>
@@ -98,7 +98,7 @@ const Transaction = () => {
                         className="text-xl cursor-pointer"
                       />
                       {showOption === i && (
-                        <div className="rounded p-2 gap-1.5 pl-4 z-30 absolute top-12 sm:left-0 right-0 bg-white  grid text-left shadow">
+                        <div className="rounded p-2 gap-1.5 pl-4 z-30 absolute top-12 sm:left-0 right-0 bg-secondary  grid text-left shadow">
                           <span
                             onClick={() => {
                               handleOpenModal();
@@ -129,7 +129,7 @@ const Transaction = () => {
         </div>
 
         {/* Pagination */}
-        <div className=" p-3 text-sm bg-white absolute bottom-0 right-0 w-full flex items-center gap-10 justify-end">
+        <div className=" p-3 text-sm bg-secondary absolute bottom-0 right-0 w-full flex items-center gap-10 justify-end">
           <div className="">1-6 of 40</div>
           <div className=" flex gap-0.5">
             <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">

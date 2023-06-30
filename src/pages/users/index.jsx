@@ -7,6 +7,32 @@ import { BsPlus, BsThreeDots } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 import { MdExpandLess, MdOutlineCloudDownload } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Pagination from "../../components/Pagination";
+
+
+
+const UserName = [
+  {
+    name: "PUBG",
+  },
+  {
+    name: "Free fire",
+  },
+  {
+    name: "Call Of Duty",
+  },
+  {
+    name: "Chess",
+  },
+  {
+    name: "Temple Run",
+  },
+  {
+    name: "Hill Climb Racing",
+  },
+   
+  
+];
 
 const Users = () => {
   const [editData, setEditData] = useState();
@@ -19,11 +45,26 @@ const Users = () => {
     setEditData();
   };
 
+  // pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const perPageItems = 7;
+  const totalItems = UserName.length
+  
+    const trimStart = (currentPage - 1) * perPageItems;
+  const trimEnd = trimStart + perPageItems;
+
+    // handle Paginations
+  const handlePrev = () => currentPage !== 1 && setCurrentPage(currentPage - 1);
+  const handleForw = () =>
+    trimEnd <= totalItems && setCurrentPage(currentPage + 1);
+
+
+
   return (
     <div className="tracking-wider h-full">
-      <Heading title="Users" />
+      <Heading title="Users List" />
 
-      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-white p-3 mt-2 sm:mt-3 rounded shadow">
+      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14  bg-secondary p-3 mt-2 sm:mt-3 rounded shadow">
         {/* search & button */}
         <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
           <div className="rounded flex w-full sm:w-60 items-center  py-2 px-2.5 border">
@@ -52,67 +93,46 @@ const Users = () => {
           <table className="w-full text-left whitespace-no-wrap">
             <thead>
               <tr>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tl-lg ">
-                  Game
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tl-lg ">
+                  Name
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Tournament
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                  Email
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Type
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                  Date Of Birth
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Link
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
                   Map
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
                   Fee
                 </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Prize
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Slots
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Mode
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Status
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
-                  Time
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)]">
+              
+      
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
                   Image
                 </th>
 
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm bg-[rgb(226,225,239)] rounded-tr-lg ">
+                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tr-lg ">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody className="text-xs relative h-full overflow-y-auto">
-              {["", "", "", "", "", "", "", "", ""].map((item, i) => {
+              {["", "", "", "", "", "",].map((item, i) => {
                 return (
                   <tr
-                    className={`${i % 2 !== 0 && "bg-[rgb(248,248,252)]"
-                      } border-b`}
+                    className={`${i % 2 !== 0 && "table-head"
+                      } `}
                   >
                     <td className="px-4 py-2 text-color">PUBG</td>
                     <td className="px-4 py-2">BattleRoof</td>
                     <td className="px-4 py-2">Solo</td>
                     <td className="px-4 py-2">http:/google.com</td>
-                    <td className="px-4 py-2">Erangle</td>
-                    <td className="px-4 py-2">100$</td>
-                    <td className="px-4 py-2">1000$</td>
-                    <td className="px-4 py-2">43 Left</td>
-                    <td className="px-4 py-2">Active</td>
-                    <td className="px-4 py-2">Completed</td>
+                    <td className="px-4 py-2">http:/google.com</td>
 
-                    <td className="px-4 py-2">26/03/2023</td>
+                   
 
                     <td className="px-4 py-2  text-gray-900">
                       <img
@@ -130,7 +150,7 @@ const Users = () => {
                         className="text-xl cursor-pointer"
                       />
                       {showOption === i && (
-                        <div className="rounded p-2 gap-1.5 pl-4 z-30 absolute top-12 sm:left-0 right-0 bg-white  grid text-left shadow">
+                        <div className="rounded p-2 gap-1.5 pl-4 z-30 absolute top-12 sm:left-0 right-0 bg-secondary  grid text-left shadow">
                           <span
                             onClick={() => {
                               handleOpenModal();
@@ -161,32 +181,13 @@ const Users = () => {
         </div>
 
         {/* Pagination */}
-        <div className=" p-3 text-sm bg-white absolute bottom-0 right-0 w-full flex items-center gap-10 justify-end">
-          <div className="">1-6 of 40</div>
-          <div className=" flex gap-0.5">
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              <MdExpandLess className="text-lg rotate-[270deg]" />
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              1
-            </span>
-            <span className="w-6 h-6 text-color bg-color rounded-full flex justify-center items-center cursor-pointer ">
-              2
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              3
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              4
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              ...
-            </span>
-            <span className="w-6 h-6  rounded-full flex justify-center items-center cursor-pointer ">
-              <MdExpandLess className="text-lg rotate-[90deg]" />
-            </span>
-          </div>
-        </div>
+          <Pagination
+          handlePrev={handlePrev}
+          from={trimStart}
+          to={trimEnd}
+          total={totalItems}
+          handleForw={handleForw}
+        />
       </section>
 
       {/* Add & Update Modal */}
