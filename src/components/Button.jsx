@@ -5,7 +5,7 @@ const Button = ({ title, icon, event }) => {
     <button
       type="button"
       onClick={event}
-      className="bg-primary-button justify-center text-sm flex items-center gap-1.5 cursor-pointer tracking-wider p-2 rounded text-white"
+      className="bg-button justify-center text-sm flex items-center gap-1.5 cursor-pointer tracking-wider p-2 px-4 rounded text-white"
     >
       {icon}
       {title}

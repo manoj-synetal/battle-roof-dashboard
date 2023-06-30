@@ -11,7 +11,7 @@ const SearchBar = ({ handleOpenModal }) => {
 
       <input
         type="text"
-        className="w-full text-sm outline-none"
+        className="w-full bg-transparent text-sm outline-none"
         placeholder="Explore Battle Roof"
       />
       <div

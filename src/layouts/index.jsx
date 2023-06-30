@@ -20,9 +20,9 @@ const Layout = (Wcomponent) => {
         </div>
 
         {/* Component & Header */}
-        <main className={`w-full ${!toggle ? "w-full" : " md:w-4/5"}`}>
+        <main className={`w-full p-2.5 ${!toggle ? "w-full" : " md:w-4/5"}`}>
           <Header handleToggle={handleToggle} toggle={toggle} />
-          <div className="p-3 bg-color h-full">
+          <div className="h-full mt-2">
             <Wcomponent />
           </div>
         </main>

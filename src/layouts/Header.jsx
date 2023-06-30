@@ -17,7 +17,7 @@ const Header = ({ handleToggle, toggle }) => {
     setShowModal(showModal === value ? "" : value);
 
   return (
-    <div className="p-2.5 shadow tracking-wider flex items-center">
+    <div className="p-2.5 rounded bg-[#1E2A3A] shadow tracking-wider flex items-center">
       {showModal === "Search" ? (
         <>
           {/* Search Drawer */}
@@ -59,11 +59,10 @@ const Header = ({ handleToggle, toggle }) => {
 
             {/* Profile */}
             <section className="flex gap-2  sm:gap-3  items-center">
-              <div className="bg-color z-10 flex justify-center items-center text-3xl font-bold w-8 h-8 sm:w-9 sm:h-9 text-color border rounded-full cursor-pointer">
+              <div className="bg-color z-10 flex justify-center items-center text-3xl font-bold w-8 h-8 sm:w-9 sm:h-9 text-color border rounded-full">
                 <img
                   src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
                   alt=""
-                  onClick={() => handleOpenModal("Profile")}
                   className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
@@ -83,9 +82,15 @@ const Header = ({ handleToggle, toggle }) => {
               {/* Profile Drawer */}
               {showModal === "Profile" && (
                 <div className="rounded p-2 text-sm gap-1.5 pl-4 w-40 z-30 absolute top-12 right-2 bg-white  grid text-left shadow">
-                  <span className="cursor-pointer">My Profile</span>
-                  <span className="cursor-pointer">Setting</span>
-                  <hr />
+                  <span
+                    onClick={() => {
+                      navigate("/setting/profile");
+                      handleOpenModal("Profile");
+                    }}
+                    className="cursor-pointer"
+                  >
+                    My Profile
+                  </span>
                   <span
                     onClick={() => navigate("/")}
                     className="cursor-pointer"
