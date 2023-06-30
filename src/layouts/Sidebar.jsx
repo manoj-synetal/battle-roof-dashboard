@@ -29,44 +29,44 @@ const Sidebar = ({ handleToggle }) => {
   // navlinks
   const navLinks = [
     {
-      id: 1,
+      
       name: "Dashboard",
       path: "/dashboard",
       icon: <MdOutlineSpaceDashboard />,
     },
     {
-      id: 2,
+      
       name: "Games",
       icon: <FaGamepad />,
       path: "/games",
     },
     {
-      id: 3,
+      
       name: "Tournaments",
       path: "/tournaments",
       icon: <MdOutlineGames />,
     },
     {
-      id: 4,
+      
       name: "Users",
       path: "/users",
       icon: <FiUsers />,
     },
     {
-      id: 4,
+      
       name: "Transaction",
       path: "/transaction",
       icon: <AiOutlineTransaction />,
     },
     {
-      id: 5,
+      
       name: "Support",
       path: "/support",
       icon: <BiSupport />,
     },
 
     {
-      id: 6,
+      
       name: "Setting",
       path: "/setting",
       icon: <BsFillGearFill />,
@@ -82,7 +82,9 @@ const Sidebar = ({ handleToggle }) => {
           icon: <FaOpencart />,
         },
       ],
+     
     },
+    
   ];
 
   return (
@@ -126,7 +128,7 @@ const Sidebar = ({ handleToggle }) => {
               {/* Nested Links */}
               {item.other && dropdown && (
                 <div className="flex text-sm flex-col gap-2 p-2 pt-0 rounded mb-3">
-                  {item.other.map((id, ite) => {
+                  {item.other.map((ite) => {
                     return (
                       <div key={ite} className="flex items-center gap-1.5">
                         <MdRadioButtonUnchecked className="text-sm" />

@@ -8,8 +8,8 @@ import { toast } from "react-hot-toast";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.authReducer);
   const [formInput, setFormInput] = useState({});
+  const { loading } = useSelector((state) => state.authReducer);
 
   // handleChange
   const handleChange = (event) => {

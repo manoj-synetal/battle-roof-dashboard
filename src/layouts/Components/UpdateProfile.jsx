@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { MdClose } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../redux/actions/authAction";
 
 const UpdateProfile = ({ handleCloseModal }) => {
   const dispatch = useDispatch();
+  const [file, setFile] = useState();
   const [formInput, setFormInput] = useState({});
+  const { loading } = useSelector((state) => state.authReducer);
 
   // handleChange
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "profilePicture") {
       setFormInput({ ...formInput, [name]: event.target.files[0] });
+      setFile(URL.createObjectURL(event.target.files[0]));
+      console.log(event.target.files);
     } else {
       setFormInput({ ...formInput, [name]: value });
     }
@@ -22,11 +26,11 @@ const UpdateProfile = ({ handleCloseModal }) => {
     event.preventDefault();
     const { mobileNumber, name, profilePicture } = formInput;
     const payload = new FormData();
-    payload.append(name);
-    payload.append(mobileNumber);
-    payload.append(profilePicture);
+    payload.append("name", name);
+    payload.append("mobileNumber", mobileNumber);
+    payload.append("profilePicture", profilePicture);
 
-    dispatch(updateProfile(payload));
+    dispatch(updateProfile(payload, handleCloseModal));
   };
 
   return (
@@ -46,7 +50,11 @@ const UpdateProfile = ({ handleCloseModal }) => {
           <div className="mb-4">
             <div className="relative w-36 h-36 border-2 p-0.5 border-color rounded-full mx-auto">
               <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
+                src={
+                  file
+                    ? file
+                    : "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
+                }
                 alt=""
                 className="w-full h-full object-cover object-top rounded-full mx-auto"
               />
@@ -99,9 +107,10 @@ const UpdateProfile = ({ handleCloseModal }) => {
 
           <button
             type="submit"
+            disabled={loading}
             className="bg-button justify-center flex items-center cursor-pointer tracking-wider py-2 px-4 mt-2 rounded text-white"
           >
-            Submit
+            {loading ? "please wait..." : "Submit"}
           </button>
         </form>
       </div>

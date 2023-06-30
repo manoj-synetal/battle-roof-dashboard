@@ -34,14 +34,16 @@ export const authLogin = (payload, callBack) => async (dispatch) => {
 export const updateProfile = (payload, callBack) => async (dispatch) => {
   dispatch({ type: UPDATE_PROFILE });
   try {
-    const response = await axios.post(update_profile, payload);
+    const response = await axios.post(update_profile, payload, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
+      },
+    });
     const { message } = response.data;
-    dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: user });
+    dispatch({ type: UPDATE_PROFILE_SUCCESS });
     toast.success(message);
-    // localStorage.setItem("AccessToken", token);
-    // localStorage.setItem("Admin", JSON.stringify(user));
 
-    // callBack();
+    callBack();
   } catch (error) {
     const { message } = error.response.data;
     dispatch({ type: UPDATE_PROFILE_FAIL });
