@@ -3,16 +3,20 @@ import { MdClose } from "react-icons/md";
 
 const UpdateProfile = ({ handleCloseModal }) => {
   const [formInput, setFormInput] = useState({});
-
-  // handleChange
+  const [file, setFile] = useState();
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "profilePicture") {
       setFormInput({ ...formInput, [name]: event.target.files[0] });
+      setFile(URL.createObjectURL(event.target.files[0]));
+      console.log(event.target.files);
     } else {
       setFormInput({ ...formInput, [name]: value });
     }
   };
+
+
 
   return (
     <div className="tracking-wider overflow-hidden absolute z-50 top-0 flex justify-end left-0 w-full h-screen bg-modal">
@@ -31,7 +35,7 @@ const UpdateProfile = ({ handleCloseModal }) => {
           <div className="mb-4">
             <div className="relative w-36 h-36 border-2 p-0.5 border-color rounded-full mx-auto">
               <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
+                src={file ? file : "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"}
                 alt=""
                 className="w-full h-full object-cover object-top rounded-full mx-auto"
               />
