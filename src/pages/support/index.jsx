@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
 import Layout from "../../layouts";
+import Heading from "../../components/Heading";
 
-const support = () => {
-    return (
-        <div>
-            Support
-        </div>
-    )
-}
+const Support = () => {
+  return (
+    <div className="tracking-wider h-full">
+      <Heading title="Support" />
+    </div>
+  );
+};
 
-export default Layout(support)
+export default Layout(Support);

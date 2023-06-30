@@ -33,15 +33,13 @@ const NewTour = ({ handleCloseModal, editData }) => {
               type="text"
               className="rounded py-1 px-2  border
                outline-none bg-transparent tracking-wider text-sm w-full"
-              placeholder= " Tournament Name..."
-          
             />
           </div>
 
           {/* GameName */}
           <div className="grid gap-1">
             <label htmlFor="name" className="text-sm">
-             Game Name*
+              Game Name*
             </label>
             <select
               id="name"
@@ -77,7 +75,6 @@ const NewTour = ({ handleCloseModal, editData }) => {
               id="fee"
               type="text"
               className="rounded bg-transparent  py-1 px-2 outline-none border"
-              placeholder=" Fees..."
             />
           </div>
 
@@ -90,7 +87,6 @@ const NewTour = ({ handleCloseModal, editData }) => {
               id="prizepool"
               type="text"
               className="rounded bg-transparent py-1 px-2 outline-none border"
-              placeholder=" Prize Pool..."
             />
           </div>
 
@@ -103,7 +99,6 @@ const NewTour = ({ handleCloseModal, editData }) => {
               id="slots"
               type="text"
               className="rounded bg-transparent py-1 px-2 outline-none border"
-              placeholder=" Total Slots..."
             />
           </div>
 
@@ -116,7 +111,6 @@ const NewTour = ({ handleCloseModal, editData }) => {
               id="mode"
               type="text"
               className="rounded bg-transparent py-1 px-2 outline-none border"
-              placeholder=" Game Mode..."
             />
           </div>
 
@@ -128,7 +122,6 @@ const NewTour = ({ handleCloseModal, editData }) => {
             <input
               id="status"
               type="text"
-              placeholder=" Status..."
               className="rounded bg-transparent py-1 px-2 outline-none border"
             />
           </div>
@@ -142,7 +135,6 @@ const NewTour = ({ handleCloseModal, editData }) => {
               id="time"
               type="datetime-local"
               className="rounded bg-transparent py-1 px-2 outline-none border"
-             
             />
           </div>
 

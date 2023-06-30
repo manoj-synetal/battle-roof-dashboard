@@ -9,6 +9,7 @@ import Heading from "../../components/Heading";
 import Pagination from "../../components/Pagination";
 import { AiOutlineEdit, AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import SearchBox from "../../components/SearchBox";
 
 const dummy = [
   {
@@ -29,10 +30,7 @@ const dummy = [
   {
     name: "Hill Climb Racing",
   },
-   
-  
 ];
-
 
 const Products = () => {
   const [editData, setEditData] = useState();
@@ -97,15 +95,11 @@ const Products = () => {
       <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-secondary p-3 mt-2 sm:mt-3 rounded shadow ">
         {/* search & button */}
         <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-4 sm:items-center sm:justify-between">
-          <div className="rounded-full border-color flex w-full sm:w-60 items-center border  p-2 pl-4 ">
-            <input
-              type="text"
-              className=" outline-none  bg-transparent tracking-wider text-sm w-full"
-              placeholder="Search Games..."
-              value={searchValue}
-              onChange={(event) => setSearchValue(event.target.value)}
-            />
-          </div>
+          <SearchBox
+            placeholder="Games"
+            value={searchValue}
+            handleChange={(event) => setSearchValue(event.target.value)}
+          />
           <span className="grid sm:flex grid-cols-2 gap-2">
             <Button
               title={`Export`}
