@@ -10,9 +10,17 @@ body {
   color: #dfe8ef;
 }
 
+.icon-bg {
+  background: var(--dark-bg, #101829);
+}
+
 .text-color,
 .hover-text-color:hover {
   color: #32d583;
+}
+
+.border-color {
+  border-color: #32d583;
 }
 
 .bg-button {
@@ -27,10 +35,10 @@ body {
   background: #101829;
   color: white;
 }
-
 .bg-modal {
-  background: rgb(0, 0, 0, 0.3);
+  background: rgb(0, 0, 0, 0.5);
 }
+
 .table-container {
   position: relative;
   overflow-y: scroll;
@@ -39,42 +47,15 @@ body {
   ); /* Subtract the height of pagination or other elements if applicable */
 }
 
-.table-container::-webkit-scrollbar {
+input,
+select {
+  background: transparent;
+  border-color: white;
+  color: white;
+}
+
+.table-container::-webkit-scrollbar,
+.notification-container::-webkit-scrollbar {
   width: 0px;
   display: none; /* Width of the scrollbar */
-}
-
-.notification-container::-webkit-scrollbar {
-  width: 5px;
-}
-
-.notification-container::-webkit-scrollbar-track {
-  background: transparent; /* Background color of the scrollbar track */
-}
-
-.notification-container::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Rounded corners of the scrollbar thumb */
-}
-
-.notification-container::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.4
-  ); /* Color of the scrollbar thumb on hover */
-}
-
-.notification-container::-webkit-scrollbar-thumb:active {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.6
-  ); /* Color of the scrollbar thumb when active/pressed */
-}
-
-.notification-container::-webkit-scrollbar-corner {
-  background: transparent; /* Background color of the scrollbar corner */
 }

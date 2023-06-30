@@ -97,8 +97,13 @@ const Tournaments = () => {
 
         {/* Table Data */}
         <div className="table-container">
+<<<<<<< HEAD
           <table className="w-full text-left whitespace-no-wrap">
             <thead className="table-head">
+=======
+          <table className="w-full text-left whitespace-nowrap">
+            <thead>
+>>>>>>> 71f8a8e120e374b278ef1b8405499a5c3db5f8ea
               <tr>
                 <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tl-lg ">
                   Game

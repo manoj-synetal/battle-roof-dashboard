@@ -1,7 +1,5 @@
 import React from "react";
-import Select from "react-select";
-import { MdClose, MdOutlineCloudUpload } from "react-icons/md";
-import Button from "../../components/Button";
+import { MdClose } from "react-icons/md";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -165,7 +163,7 @@ const NewTour = ({ handleCloseModal, editData }) => {
 
           <button
             type="submit"
-            className="bg-primary-button justify-center flex items-center cursor-pointer tracking-wider py-2 px-4 rounded text-white"
+            className="bg-button justify-center flex items-center cursor-pointer tracking-wider py-2 px-4 rounded text-white"
           >
             Submit
           </button>

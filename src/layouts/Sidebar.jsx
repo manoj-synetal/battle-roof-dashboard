@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import {
+  MdClose,
   MdOutlineGames,
   MdOutlineSpaceDashboard,
   MdRadioButtonUnchecked,
 } from "react-icons/md";
-import { FaOpencart, FaProductHunt, FaGamepad } from "react-icons/fa";
+import { FaOpencart, FaGamepad } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsChevronDown, BsChevronUp, BsFillGearFill } from "react-icons/bs";
-import Button2 from "../components/Button2";
-import { BiArrowBack, BiSupport } from "react-icons/bi";
+import Button from "../components/Button";
+import { BiSupport } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { AiOutlineTransaction } from "react-icons/ai";
 
@@ -89,17 +90,13 @@ const Sidebar = ({ handleToggle }) => {
 
   return (
     <div className="md:z-auto w-full z-40">
-      <img
-        src={Logo}
-        alt="ApkiStore"
-        className="w-28 md:block hidden mb-9 mt-1"
-      />
-
-      <div
-        onClick={handleToggle}
-        className="mb-9 mt-1 flex md:hidden justify-end cursor-pointer"
-      >
-        <Button2 title="Back" icon={<BiArrowBack className="md:text-lg" />} />
+      {/* Logo & Close Button */}
+      <div className="flex items-center mb-8 justify-between">
+        <img src={Logo} alt="ApkiStore" className="w-28 block" />
+        <MdClose
+          onClick={handleToggle}
+          className="text-xl md:hidden cursor-pointer"
+        />
       </div>
 
       {/* Links */}
@@ -116,12 +113,10 @@ const Sidebar = ({ handleToggle }) => {
               >
                 <div
                   className={`${
-                    location.pathname === item.path
-                      ? "text-color"
-                      : "text-gray-500 "
-                  } hover-text-color text-sm  flex items-center gap-3 `}
+                    location.pathname === item.path && "text-color"
+                  } hover-text-color flex items-center gap-2 `}
                 >
-                  <span className="text-lg" key={item.name}>{item.icon}</span>
+                  <span className="text-lg">{item.icon}</span>
                   {item.name}
                 </div>
                 {item.other && (
