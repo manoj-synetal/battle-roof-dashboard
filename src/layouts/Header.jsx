@@ -68,9 +68,7 @@ const Header = ({ handleToggle, toggle }) => {
               </div>
               <div className="sm:flex hidden flex-col">
                 <span className="text-sm font-bold text-color">Merchant</span>
-                <span className="text-xs text-gray-500">
-                  apkistore@gamil.com
-                </span>
+                <span className="text-xs ">apkistore@gamil.com</span>
               </div>
               {/* Down Arrow */}
               <span
@@ -81,7 +79,7 @@ const Header = ({ handleToggle, toggle }) => {
               </span>
               {/* Profile Drawer */}
               {showModal === "Profile" && (
-                <div className="rounded p-2 text-sm gap-1.5 pl-4 w-40 z-30 absolute top-12 right-2 bg-white  grid text-left shadow">
+                <div className="rounded p-3 text-sm gap-1.5 pl-4 w-40 z-30 absolute top-14 right-2  bg-secondary  grid text-left shadow">
                   <span
                     onClick={() => {
                       navigate("/setting/profile");

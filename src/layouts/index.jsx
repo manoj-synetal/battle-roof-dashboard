@@ -14,7 +14,7 @@ const Layout = (Wcomponent) => {
         <div
           className={`w-80 md:w-1/5 ${
             !toggle ? "md:hidden left-0" : "-left-full"
-          } bg-white md:static absolute border-r transition-all duration-100 top-0 z-50 md:z-auto  h-full overflow-y-auto p-4`}
+          } bg-secondary md:static absolute transition-all duration-100 top-0 z-50 md:z-auto  h-full overflow-y-auto p-4`}
         >
           <Sidebar handleToggle={handleToggle} toggle={toggle} />
         </div>
