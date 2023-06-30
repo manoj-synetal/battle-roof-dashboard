@@ -69,9 +69,9 @@ const Tournaments = () => {
 
       <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-secondary p-3 mt-2 sm:mt-3 rounded shadow ">
         {/* search & button */}
-        <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-4 sm:items-center sm:justify-between">
+        <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
           <SearchBox placeholder="Tournament" />
-          <span className="grid sm:flex grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2">
             <Button
               title={`Export`}
               icon={<MdOutlineCloudDownload className="text-xl" />}
@@ -81,7 +81,7 @@ const Tournaments = () => {
               icon={<BsPlus className="text-xl" />}
               event={handleOpenModal}
             />
-          </span>
+          </div>
         </div>
 
         {/* Table Data */}
