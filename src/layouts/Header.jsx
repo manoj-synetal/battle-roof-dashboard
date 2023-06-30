@@ -13,7 +13,7 @@ const Header = ({ handleToggle, toggle }) => {
   const [showModal, setShowModal] = useState();
   const [updateProfile, setUpdateProfile] = useState(false);
 
-  const { email, role, name } = JSON.parse(localStorage.getItem("Admin"));
+  const { email, role, ...data } = JSON.parse(localStorage.getItem("Admin"));
 
   // handleOpenModal
   const handleOpenModal = (value) =>
@@ -119,7 +119,10 @@ const Header = ({ handleToggle, toggle }) => {
 
           {/* Update Profile */}
           {updateProfile && (
-            <UpdateProfile handleCloseModal={() => setUpdateProfile(false)} />
+            <UpdateProfile
+              data={data}
+              handleCloseModal={() => setUpdateProfile(false)}
+            />
           )}
         </>
       )}

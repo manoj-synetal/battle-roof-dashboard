@@ -3,10 +3,10 @@ import { MdClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../redux/actions/authAction";
 
-const UpdateProfile = ({ handleCloseModal }) => {
+const UpdateProfile = ({ handleCloseModal, data }) => {
   const dispatch = useDispatch();
   const [file, setFile] = useState();
-  const [formInput, setFormInput] = useState({});
+  const [formInput, setFormInput] = useState({ ...data });
   const { loading } = useSelector((state) => state.authReducer);
 
   // handleChange
@@ -15,7 +15,6 @@ const UpdateProfile = ({ handleCloseModal }) => {
     if (name === "profilePicture") {
       setFormInput({ ...formInput, [name]: event.target.files[0] });
       setFile(URL.createObjectURL(event.target.files[0]));
-      console.log(event.target.files);
     } else {
       setFormInput({ ...formInput, [name]: value });
     }
@@ -76,22 +75,20 @@ const UpdateProfile = ({ handleCloseModal }) => {
           </div>
 
           {/* Name */}
-          <div className="grid gap-1">
-            <label htmlFor="name" className="text-sm">
-              Name*
-            </label>
+          <div className="grid gap-1 text-sm">
+            <label htmlFor="name">Name*</label>
             <input
               id="name"
               type="text"
               name="name"
               value={formInput?.name}
               onChange={handleChange}
-              className="rounded py-1.5 px-2 outline-none border"
+              className="rounded p-2 px-3 outline-none border"
             />
           </div>
 
           {/* Phone */}
-          <div className="grid gap-1">
+          <div className="grid gap-1 text-sm">
             <label htmlFor="Phone" className="text-sm">
               Phone*
             </label>
@@ -101,7 +98,7 @@ const UpdateProfile = ({ handleCloseModal }) => {
               name="mobileNumber"
               value={formInput?.mobileNumber}
               onChange={handleChange}
-              className="rounded py-1.5 px-2 outline-none border"
+              className="rounded p-2 px-3 outline-none border"
             />
           </div>
 

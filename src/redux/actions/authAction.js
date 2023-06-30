@@ -16,7 +16,7 @@ export const authLogin = (payload, callBack) => async (dispatch) => {
   try {
     const response = await axios.post(login_url, payload);
     const { token, message, user } = response.data;
-    dispatch({ type: LOG_IN_SUCCESS, payload: user });
+    dispatch({ type: LOG_IN_SUCCESS });
 
     toast.success(message);
     localStorage.setItem("AccessToken", token);
@@ -24,7 +24,7 @@ export const authLogin = (payload, callBack) => async (dispatch) => {
 
     callBack();
   } catch (error) {
-    const { message } = error.response.data;
+    const { message } = error?.response?.data;
     dispatch({ type: LOG_IN_FAIL });
     toast.error(message);
   }
@@ -45,8 +45,8 @@ export const updateProfile = (payload, callBack) => async (dispatch) => {
 
     callBack();
   } catch (error) {
-    const { message } = error.response.data;
+    const { msg } = error?.response?.data?.error?.errors?.[0];
     dispatch({ type: UPDATE_PROFILE_FAIL });
-    toast.error(message);
+    toast.error(msg);
   }
 };
