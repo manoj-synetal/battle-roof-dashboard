@@ -1,205 +1,283 @@
-import React, { useState } from "react";
-import Layout from "../../layouts";
-import Heading from "../../components/Heading";
-import Button from "../../components/Button";
-import { BsPlus, BsThreeDots } from "react-icons/bs";
+import { BsPlus } from "react-icons/bs";
+import React, { useEffect, useState } from "react";
+import { AiOutlinePlayCircle } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { MdOutlineCloudDownload } from "react-icons/md";
+
+import {
+  deleteTournament,
+  getTournaments,
+  updateTourStatus,
+} from "../../redux/actions/tournamentAction";
+
 import NewTour from "./NewTour";
-import { GoSearch } from "react-icons/go";
-import { MdExpandLess, MdOutlineCloudDownload } from "react-icons/md";
+import Layout from "../../layouts";
+import Badge from "../../components/Badge";
+import Toggle from "../../components/Toggle";
+import Button from "../../components/Button";
+import Heading from "../../components/Heading";
+import SearchBox from "../../components/SearchBox";
 import Pagination from "../../components/Pagination";
 import ShowOption from "../../components/ShowOption";
-import SearchBox from "../../components/SearchBox";
-
-const GameList = [
-  {
-    name: "PUBG",
-  },
-  {
-    name: "Free fire",
-  },
-  {
-    name: "Call Of Duty",
-  },
-  {
-    name: "Chess",
-  },
-  {
-    name: "Temple Run",
-  },
-  {
-    name: "Hill Climb Racing",
-  },
-];
+import TableImage from "../../components/TableImage";
+import ConfrimationModal from "../../components/ConfrimationModal";
 
 const Tournaments = () => {
+  const dispatch = useDispatch();
   const [editData, setEditData] = useState();
-  const [showOption, setShowOption] = useState();
+  const [showConfirm, setShowConfirm] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [searchValue, setSearchValue] = useState();
-
-  // pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const perPageItems = 7;
-  const totalItems = GameList.length;
+  const { tournaments } = useSelector((state) => state.tournamentReducer);
+  const { results, imageUrl } = tournaments;
 
-  const trimStart = (currentPage - 1) * perPageItems;
-  const trimEnd = trimStart + perPageItems;
-
-  // handle Paginations
-  const handlePrev = () => currentPage !== 1 && setCurrentPage(currentPage - 1);
-  const handleForw = () =>
-    trimEnd <= totalItems && setCurrentPage(currentPage + 1);
-
-  // handle Modals
+  // Handle Moadals
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => {
     setOpenModal(false);
     setEditData();
   };
+  const handleCloseConfirm = () => {
+    setShowConfirm(false);
+    setEditData();
+  };
 
-  // handle search
-  const filteredData = GameList.filter(
+  // Api Handles
+  const handleDeleteTour = () => {
+    dispatch(deleteTournament(editData._id, handleCloseConfirm));
+  };
+  const handleStatusUpdate = (event) => {
+    const payload = { status: event.target.checked };
+    dispatch(updateTourStatus(event.target.id, payload));
+  };
+
+  // Other Handles
+  const filteredData = results?.filter(
     (item) =>
       item.name && item.name?.toLowerCase().includes(searchValue?.toLowerCase())
   );
+  const downloadDataInCsv = () => {
+    var data = [];
+    var rows = document.querySelectorAll("table.down tr");
+
+    for (var i = 0; i < rows.length; i++) {
+      var row = [],
+        cols = rows[i].querySelectorAll("td, th");
+
+      for (var j = 0; j < cols.length; j++) {
+        row.push(cols[j].innerText);
+      }
+
+      data.push(row.join(","));
+    }
+
+    // Create downloadAble
+    const a = document.createElement("a");
+    const file = new Blob([data.join("\n")], { type: "text/csv" });
+    a.href = URL.createObjectURL(file);
+    a.download = "Data.csv";
+    a.click();
+  };
+
+  // Pagination Logic
+  const perPageItems = 7;
+  const totalItems = results?.length;
+  const trimStart = (currentPage - 1) * perPageItems;
+  const trimEnd = trimStart + perPageItems;
+  const handlePrev = () => currentPage !== 1 && setCurrentPage(currentPage - 1);
+  const handleForw = () =>
+    trimEnd <= totalItems && setCurrentPage(currentPage + 1);
+
+  // useEffect
+  useEffect(() => {
+    dispatch(getTournaments());
+  }, [dispatch]);
 
   return (
     <div className="tracking-wider h-full">
       <Heading title="Tournaments" />
 
-      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh] pb-24 sm:pb-14 bg-secondary p-3 mt-2 sm:mt-3 rounded shadow ">
+      <section className="w-full relative overflow-hidden max-h-[80vh] sm:max-h-[80vh] pb-24 sm:pb-14 bg-secondary p-3 mt-2 sm:mt-3 rounded shadow ">
         {/* search & button */}
         <div className="flex sm:flex-row flex-col gap-3 pt-1 pb-3 sm:items-center sm:justify-between">
-          <SearchBox placeholder="Tournament" />
-          <div className="grid grid-cols-2 gap-2">
-            <Button
-              title={`Export`}
-              icon={<MdOutlineCloudDownload className="text-xl" />}
-            />
+          <SearchBox
+            placeholder="Tournament"
+            handleChange={(event) => setSearchValue(event.target.value)}
+            value={searchValue}
+          />
+          <div className="sm:flex grid grid-cols-2 gap-2">
+            {results?.length !== 0 && (
+              <Button
+                title={`Export`}
+                icon={<MdOutlineCloudDownload />}
+                event={downloadDataInCsv}
+              />
+            )}
             <Button
               title={`Add Tournament`}
-              icon={<BsPlus className="text-xl" />}
+              icon={<BsPlus />}
               event={handleOpenModal}
             />
           </div>
         </div>
 
-        {/* Table Data */}
-        <div className="table-container">
-          <table className="w-full text-left whitespace-nowrap">
-            <thead>
-              <tr>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tl-lg ">
-                  Game
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Tournament
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Type
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Link
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Map
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Fee
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Prize
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Slots
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Mode
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Status
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Time
-                </th>
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
-                  Image
-                </th>
+        {results?.length === 0 ? (
+          <div className="text-center py-16">No Record Found</div>
+        ) : (
+          <>
+            <div className="table-container">
+              <table className="w-full down text-left whitespace-nowrap">
+                <thead>
+                  <tr>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tl-lg ">
+                      Banner
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Tournament
+                    </th>{" "}
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Game
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Type
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Link
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Map
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Amount
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Status
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head">
+                      Time
+                    </th>
+                    <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tr-lg ">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-xs relative h-full overflow-y-auto">
+                  {(searchValue ? filteredData : results)
+                    ?.slice(trimStart, trimEnd)
+                    .map((item, index) => {
+                      const {
+                        name,
+                        entryFee,
+                        type,
+                        prizePool,
+                        _id,
+                        gameMode,
+                        map,
+                        banner,
+                        gameName,
+                        totalSlots,
+                        status,
+                        startDateTime,
+                        endDateTime,
+                      } = item;
+                      return (
+                        <tr
+                          key={_id}
+                          className={`${index % 2 !== 0 && "table-head"} `}
+                        >
+                          <td className="px-4 min-w-[80px] py-2  text-gray-900">
+                            <TableImage
+                              src={`${imageUrl}${banner}`}
+                              alt={name}
+                            />
+                          </td>
 
-                <th className="p-3 px-4 title-font tracking-wider font-medium text-gray-900 text-sm table-head rounded-tr-lg ">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-xs relative h-full overflow-y-auto">
-              {(searchValue ? filteredData : GameList)
-                .slice(trimStart, trimEnd)
-                .map((item, i) => {
-                  return (
-                    <tr
-                      key={item.name}
-                      className={`${i % 2 !== 0 && "table-head"} `}
-                    >
-                      <td className="px-4 py-3">{item.name}</td>
-                      <td className="px-4 py-2">BattleRoof</td>
-                      <td className="px-4 py-2">Solo</td>
-                      <td className="px-4 py-2">http:/google.com</td>
-                      <td className="px-4 py-2">Erangle</td>
-                      <td className="px-4 py-2">100$</td>
-                      <td className="px-4 py-2">1000$</td>
-                      <td className="px-4 py-2">43 Left</td>
-                      <td className="px-4 py-2">Active</td>
-                      <td className="px-4 py-2">Completed</td>
+                          <td className="px-4 py-2">
+                            {name}{" "}
+                            <div className="flex items-center gap-1.5">
+                              Mode :
+                              <Badge title={gameMode} />
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              Slots :
+                              <Badge title={totalSlots} />
+                            </div>
+                          </td>
+                          <td className="px-4 py-3">{gameName}</td>
+                          <td className="px-4 py-2">{type}</td>
+                          <td className="px-4 py-2">
+                            <AiOutlinePlayCircle
+                              title="play"
+                              className="text-2xl text-color cursor-pointer"
+                            />
+                          </td>
+                          <td className="px-4 py-2">{map}</td>
+                          <td className="px-4 py-2">
+                            <div className="flex items-center gap-2">
+                              {" "}
+                              Entry : <Badge title={`${entryFee} $`} />
+                            </div>
+                            <div className="flex items-center gap-2">
+                              {" "}
+                              Prize :<Badge title={`${prizePool} $`} />
+                            </div>
+                          </td>
+                          <td className="px-4 py-2 text-color capitalize">
+                            <Toggle
+                              _id={_id && _id}
+                              value={status}
+                              handleChange={handleStatusUpdate}
+                            />
+                          </td>
 
-                      <td className="px-4 py-2">26/03/2023</td>
+                          <td className="px-4 py-2">
+                            <div className="">Start at {startDateTime}</div>
+                            <div className="">End at {endDateTime}</div>
+                          </td>
 
-                      <td className="px-4 py-2  text-gray-900">
-                        <img
-                          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80"
-                          alt=""
-                          className="w-9 h-9 rounded-full object-cover object-top"
-                        />
-                      </td>
-
-                      <td className="px-4 text-center  relative ">
-                        <BsThreeDots
-                          onClick={() => {
-                            setShowOption(showOption === i ? "" : i);
-                          }}
-                          className="text-xl cursor-pointer"
-                        />
-                        {showOption === i && (
-                          <ShowOption
-                            handleDelete={() => setShowOption("")}
-                            handleView={() => console.log("/")}
-                            handleEdit={() => {
-                              handleOpenModal();
-                              setEditData({ h: "l" });
-                              setShowOption("");
-                            }}
-                          />
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
-
-        {/* Pagination */}
-        <Pagination
-          handlePrev={handlePrev}
-          from={trimStart}
-          to={trimEnd}
-          total={totalItems}
-          handleForw={handleForw}
-        />
+                          <td className="px-4 text-center">
+                            <ShowOption
+                              handleDelete={() => {
+                                setShowConfirm(true);
+                                setEditData(item);
+                              }}
+                              handleView={() => console.log("/")}
+                              handleEdit={() => {
+                                setEditData(item);
+                                handleOpenModal();
+                              }}
+                            />
+                          </td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
+            </div>
+            <Pagination
+              handlePrev={handlePrev}
+              from={trimStart}
+              to={trimEnd}
+              total={totalItems}
+              handleForw={handleForw}
+            />
+          </>
+        )}
       </section>
 
       {/* Add & Update Modal */}
       {openModal && (
         <NewTour editData={editData} handleCloseModal={handleCloseModal} />
+      )}
+
+      {/* Delete Modal */}
+      {showConfirm && (
+        <ConfrimationModal
+          handleCancel={handleCloseConfirm}
+          handleConfirm={handleDeleteTour}
+          title="Tournament"
+        />
       )}
     </div>
   );

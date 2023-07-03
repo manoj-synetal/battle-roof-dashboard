@@ -33,8 +33,8 @@ const AllRoutes = [
   },
 
   {
-    name: "View Products",
-    path: "/games/view/",
+    name: "View Games",
+    path: "/games/:slug",
     element: <ViewGame />,
     private: true,
   },

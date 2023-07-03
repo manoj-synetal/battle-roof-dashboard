@@ -47,6 +47,10 @@ body {
   ); /* Subtract the height of pagination or other elements if applicable */
 }
 
+.bg-select {
+  background-color: #1e2a3a;
+}
+
 input,
 select {
   background: transparent;

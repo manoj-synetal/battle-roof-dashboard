@@ -5,9 +5,9 @@ const Button = ({ title, icon, event }) => {
     <button
       type="button"
       onClick={event}
-      className="bg-button justify-center text-sm flex items-center gap-1.5 cursor-pointer tracking-wider p-2 px-4 rounded text-white"
+      className="bg-button justify-center text-xs sm:text-sm flex items-center gap-1 cursor-pointer tracking-wider p-2 sm:px-4 rounded text-white"
     >
-      {icon}
+      <span className="sm:text-xl text-lg">{icon}</span>
       {title}
     </button>
   );

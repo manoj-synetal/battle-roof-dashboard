@@ -7,3 +7,59 @@ export const LOG_IN_SUCCESS = "LOG_IN_SUCCESS";
 export const UPDATE_PROFILE = "UPDATE_PROFILE";
 export const UPDATE_PROFILE_FAIL = "UPDATE_PROFILE_FAIL";
 export const UPDATE_PROFILE_SUCCESS = "UPDATE_PROFILE_SUCCESS";
+
+// -------------------------------- Tournament --------------------------------//
+
+// TOURNAMENT
+export const TOURNAMENT = "TOURNAMENT";
+export const TOURNAMENT_FAIL = "TOURNAMENT_FAIL";
+export const TOURNAMENT_SUCCESS = "TOURNAMENT_SUCCESS";
+
+// ADD_TOURNAMENT
+export const ADD_TOURNAMENT = "ADD_TOURNAMENT";
+export const ADD_TOURNAMENT_FAIL = "ADD_TOURNAMENT_FAIL";
+export const ADD_TOURNAMENT_SUCCESS = "ADD_TOURNAMENT_SUCCESS";
+
+// DELETE_TOURNAMENT
+export const DELETE_TOURNAMENT = "DELETE_TOURNAMENT";
+export const DELETE_TOURNAMENT_FAIL = "DELETE_TOURNAMENT_FAIL";
+export const DELETE_TOURNAMENT_SUCCESS = "DELETE_TOURNAMENT_SUCCESS";
+
+// UPDATE_TOUR_STATUS
+export const UPDATE_TOUR_STATUS = "UPDATE_TOUR_STATUS";
+export const UPDATE_TOUR_STATUS_FAIL = "UPDATE_TOUR_STATUS_FAIL";
+export const UPDATE_TOUR_STATUS_SUCCESS = "UPDATE_TOUR_STATUS_SUCCESS";
+
+// -------------------------------- Games --------------------------------//
+
+// GAME_LIST
+export const GAME_LIST = "GAME_LIST";
+export const GAME_LIST_FAIL = "GAME_LIST_FAIL";
+export const GAME_LIST_SUCCESS = "GAME_LIST_SUCCESS";
+
+// ADD_GAME
+export const ADD_GAME = "ADD_GAME";
+export const ADD_GAME_FAIL = "ADD_GAME_FAIL";
+export const ADD_GAME_SUCCESS = "ADD_GAME_SUCCESS";
+
+// UPDATE_GAME
+export const UPDATE_GAME = "UPDATE_GAME";
+export const UPDATE_GAME_FAIL = "UPDATE_GAME_FAIL";
+export const UPDATE_GAME_SUCCESS = "UPDATE_GAME_SUCCESS";
+
+// UPDATE_GAME_STATUS
+export const UPDATE_GAME_STATUS = "UPDATE_GAME_STATUS";
+export const UPDATE_GAME_STATUS_FAIL = "UPDATE_GAME_STATUS_FAIL";
+export const UPDATE_GAME_STATUS_SUCCESS = "UPDATE_GAME_STATUS_SUCCESS";
+
+// DELETE_GAME
+export const DELETE_GAME = "DELETE_GAME";
+export const DELETE_GAME_FAIL = "DELETE_GAME_FAIL";
+export const DELETE_GAME_SUCCESS = "DELETE_GAME_SUCCESS";
+
+// -------------------------------- Game Types --------------------------------//
+
+// GAME_TYPE_LIST
+export const GAME_TYPE_LIST = "GAME_TYPE_LIST";
+export const GAME_TYPE_LIST_FAIL = "GAME_TYPE_LIST_FAIL";
+export const GAME_TYPE_LIST_SUCCESS = "GAME_TYPE_LIST_SUCCESS";

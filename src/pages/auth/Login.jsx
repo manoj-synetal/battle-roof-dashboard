@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../../redux/actions/authAction";
 import { toast } from "react-hot-toast";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
   const [formInput, setFormInput] = useState({});
   const { loading } = useSelector((state) => state.authReducer);
 
@@ -53,7 +55,7 @@ const Login = () => {
           </label>
           <input
             id="email"
-            className="block w-full px-4 py-2 bg-transparent  border rounded-lg  focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+            className="block w-full px-4 py-2 bg-transparent border-gray-700 outline-none  border rounded-lg  "
             type="email"
             value={formInput?.email}
             name="email"
@@ -72,14 +74,22 @@ const Login = () => {
             </label>
           </div>
 
-          <input
-            id="password"
-            className="block w-full px-4 py-2  border rounded-lg  focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
-            type="password"
-            value={formInput?.password}
-            name="password"
-            onChange={handleChange}
-          />
+          <div className="flex gap-2 border-gray-700 border rounded-lg px-4 items-center">
+            <input
+              id="password"
+              className="block w-full  py-2 outline-none"
+              type={show ? "text" : "password"}
+              value={formInput?.password}
+              name="password"
+              onChange={handleChange}
+            />
+            <span
+              onClick={() => setShow(!show)}
+              className="text-lg cursor-pointer text-color"
+            >
+              {show ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </span>
+          </div>
         </div>
 
         {/* Submit Button */}

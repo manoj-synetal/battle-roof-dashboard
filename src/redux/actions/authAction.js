@@ -7,8 +7,8 @@ import {
   UPDATE_PROFILE_FAIL,
   UPDATE_PROFILE_SUCCESS,
 } from ".";
-import { login_url, update_profile } from "../../utils/endpoints";
 import { toast } from "react-hot-toast";
+import { login_url, update_profile } from "../../utils/endpoints";
 
 // login
 export const authLogin = (payload, callBack) => async (dispatch) => {
